@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Assignment # 1  Counter App',
+      title: 'Assignment # 1 ',
       theme: ThemeData(
 
       ),
-      home: const MyHomePage(title: 'Assignment # 1 '),
+      home: const MyHomePage(title: 'Assignment # 1  Counter App'),
     );
   }
 }
