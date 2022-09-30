@@ -1,115 +1,349 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main(){
+  runApp(Assignment2());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class Assignment2 extends StatelessWidget{
+  const Assignment2({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body:Container(
+          color: Colors.white,
+          child: Padding(
+          padding: EdgeInsets.only(left:30, bottom: 30, right: 30, top:30),
+            child: Column(
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+              children: [
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
-  final String title;
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+                    Text("Hi, Junaid!",
 
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+                      style: const TextStyle(fontWeight: FontWeight.bold),),
+
+                    Icon(Icons.add_alert_rounded),
+
+
+
+                  ],),
+                SizedBox(height: 10),
+                Row(children: [
+
+                  Text("What whould you buy today?",
+                    style: TextStyle(fontSize: 13, color: Colors.grey,),
+                  ),
+
+                ],
+
+                ),
+                SizedBox(height: 10),
+                Container(
+                  height: 100,
+
+                  width: double.maxFinite,
+                  child: Card(
+                    color: Color.fromRGBO(204, 255, 204,1),
+                    elevation: 5,
+                    child: Column(
+                      children: [
+                        Padding(padding: EdgeInsets.only(left:30, bottom: 5, right: 30, top:20),
+                          child: Align(
+
+                              alignment: Alignment.centerLeft,
+
+                              child:Column( children: [
+                                Text("Enjoy the Spacial offer",
+                                  style: TextStyle(fontSize: 12,color: Color.fromRGBO(24, 201, 112,1),fontWeight: FontWeight.bold),
+
+                                ),
+                                Text("up to 60%                          ",
+                                  style: TextStyle(fontSize: 11, color: Color.fromRGBO(24, 201, 112,1),fontWeight: FontWeight.bold),
+
+                                ),
+                                Text("at 15-25 March 2021",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey,),
+                                  textAlign: TextAlign.left,
+
+                                ),
+                              ],
+
+
+                              )
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Catagories",style: const TextStyle(fontWeight: FontWeight.bold),),
+                    Text("See All")
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ClipOval(
+                                child: Image.asset("assets/strabery.png",
+                                ),
+                              )
+                          ),
+                        ),
+                        Text("food"),
+                      ],
+                    ),
+
+
+
+                    Column(
+
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ClipOval(
+                                child: Image.asset("assets/bread.png",
+                                ),
+
+                              )
+                          ),
+                        ),
+                        Text("Bread"),
+                      ],
+                    ),
+                    Column(
+
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ClipOval(
+                                child: Image.asset("assets/veg1.png",
+                                ),
+                              )
+                          ),
+                        ),
+                        Text("Vegie"),
+                      ],
+                    ),
+                    Column(
+
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          child: SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: ClipOval(
+                                child: Image.asset("assets/chease.png",
+                                ),
+                              )
+                          ),
+                        ),
+                        Text("Vegie"),
+                      ],
+                    ),
+
+                  ],
+                ),
+                SizedBox(height: 13),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Best Selling",style: const TextStyle(fontWeight: FontWeight.bold),),
+                    Text("See All")
+                  ],
+                ),
+                SizedBox(height: 10),
+                Container(
+                  height: 100,
+
+                  width: double.maxFinite,
+                  child: Card(
+                    color: Color.fromRGBO(245, 245, 245,1),
+                    elevation: 5,
+                    child: Column(
+                      children: [
+                        Padding(padding: EdgeInsets.only(left:30, bottom: 5, right: 30, top:20),
+                          child: Align(
+
+                              alignment: Alignment.centerLeft,
+
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  child: SizedBox(
+                                      width: 80,
+                                      height: 80,
+                                      child: ClipOval(
+                                        child: Image.asset("assets/orange.png",
+                                        ),
+                                      )
+                                  ),
+                                ),
+
+                                Column(
+
+                                  children: [
+                                  Text("Orange Fresh juice",style: const TextStyle(fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,),
+
+
+                                  Text("Scrambled middle there Scrambled ",style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
+                                    textAlign: TextAlign.left,),
+                                  Text("generators De to alteration",style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
+                                    textAlign: TextAlign.left,),
+                                  Row(
+                                    children: [
+                                    Text("Rs 59.99",style: const TextStyle(decoration: TextDecoration.lineThrough,fontWeight: FontWeight.bold,  color: Colors.grey,),),
+                                    Text("    Rs 49.99",style: const TextStyle(fontWeight: FontWeight.bold),),
+
+
+                                  ],)
+
+
+                                ],),
+                                Icon(Icons.heart_broken_sharp,color: Colors.green,),
+
+                              ],
+
+
+                              )
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  height: 100,
+
+                  width: double.maxFinite,
+                  child: Card(
+                    color: Color.fromRGBO(245, 245, 245,1),
+                    elevation: 5,
+                    child: Column(
+                      children: [
+                        Padding(padding: EdgeInsets.only(left:30, bottom: 5, right: 30, top:20),
+                          child: Align(
+
+                              alignment: Alignment.centerLeft,
+
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: Colors.transparent,
+                                    child: SizedBox(
+                                        width: 80,
+                                        height: 80,
+                                        child: ClipOval(
+                                          child: Image.asset("assets/cart.png",
+                                          ),
+                                        )
+                                    ),
+                                  ),
+
+                                  Column(
+
+                                    children: [
+                                      Text("Fresh Carrot",style: const TextStyle(fontWeight: FontWeight.bold),
+                                        textAlign: TextAlign.left,),
+
+
+                                      Text("Majority as first repeat century ",style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
+                                        textAlign: TextAlign.left,),
+                                      Text("embaraceing the majority",style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.grey,),
+                                        textAlign: TextAlign.left,),
+                                      Row(
+                                        children: [
+
+                                          Text("    Rs 49.99",style: const TextStyle(fontWeight: FontWeight.bold),),
+
+
+                                        ],)
+
+
+                                    ],),
+                                  Icon(Icons.heart_broken_sharp,color: Colors.green,),
+
+                                ],
+
+
+                              )
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  color: Colors.white30,
+                  child: Card(
+                    color: Color.fromRGBO(245, 245, 245,1),
+                    elevation: 5,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.home,color: Colors.green,),
+                      Icon(Icons.search_rounded),
+                      Icon(Icons.shopping_cart),
+                      Icon(Icons.person),
+                    ],
+
+                  ),
+                ),
+                ),
+
+
+
+
+
+
+
+
+
+
+
+              ],),
+          ),
+
+    ),
+
+
+      )
     );
   }
 }
