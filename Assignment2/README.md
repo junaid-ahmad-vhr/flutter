@@ -4,7 +4,9 @@ A new Flutter project.
 
 page 1
 ![Screenshot](page1.png)
+page 2
 ![Screenshot](page2.png)
+page 3
 ![Screenshot](page3.png)
 ## Getting Started
 
