@@ -2,10 +2,12 @@
 
 A new Flutter project.
 
-page 1
-![Screenshot](page1.png)
-![Screenshot](page2.png)
-![Screenshot](page3.png)
+page 1 
+![Screenshot](1.png)
+page2
+![Screenshot](2.png)
+pag3
+![Screenshot](3.png)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
