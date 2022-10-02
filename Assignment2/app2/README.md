@@ -2,11 +2,10 @@
 
 A new Flutter project.
 
-page 1
-![Screenshot](page1.png)
+page 2
 ![Screenshot](page2.png)
-![Screenshot](page3.png)
 
+## Getting Started
 
 This project is a starting point for a Flutter application.
 
