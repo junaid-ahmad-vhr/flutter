@@ -2,11 +2,14 @@
 
 page2
 ![Screenshot](ss.jpeg)
-pag3
-![Game Process](https://github.com/Faizun-Faria/Thief-Robber-Landlord-Police/blob/main/Preview/gif_english.gif)
-![Game Process](https://github.com/jonnybhai007/flutter/blob/main/dicegame/vd.mp4)
-<video src='https://github.com/jonnybhai007/flutter/blob/main/dicegame/vd.mp4' width=180/>
-![Screenshot]([vd.mp4](https://github.com/jonnybhai007/flutter/blob/main/dicegame/vd.mp4))
+video
+
+
+
+https://user-images.githubusercontent.com/64838868/194360273-b302bcd5-008b-4630-98ad-7e6782c399dd.mp4
+
+
+
 ## Getting Started
 A new Flutter project.
 
