@@ -4,7 +4,7 @@ page2
 ![Screenshot](ss.jpeg)
 pag3
 <video src='https://github.com/jonnybhai007/flutter/blob/main/dicegame/vd.mp4' width=180/>
-![Screenshot](vd.mp4)
+![Screenshot]([vd.mp4](https://github.com/jonnybhai007/flutter/blob/main/dicegame/vd.mp4))
 ## Getting Started
 A new Flutter project.
 
