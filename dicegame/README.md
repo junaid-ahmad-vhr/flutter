@@ -1,5 +1,10 @@
 # dicegame
 
+page2
+![Screenshot](ss.png)
+pag3
+![Screenshot](vd.mp4)
+## Getting Started
 A new Flutter project.
 
 ## Getting Started
