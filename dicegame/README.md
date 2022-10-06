@@ -1,7 +1,7 @@
 # dicegame
 
 page2
-![Screenshot](ss.png)
+![Screenshot](ss.jpeg)
 pag3
 ![Screenshot](vd.mp4)
 ## Getting Started
