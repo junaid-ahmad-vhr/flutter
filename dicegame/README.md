@@ -1,9 +1,15 @@
 # dicegame
 
 page2
-![Screenshot](ss.png)
-pag3
-![Screenshot](vd.mp4)
+![Screenshot](ss.jpeg)
+video
+
+
+
+https://user-images.githubusercontent.com/64838868/194360273-b302bcd5-008b-4630-98ad-7e6782c399dd.mp4
+
+
+
 ## Getting Started
 A new Flutter project.
 
