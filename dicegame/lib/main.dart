@@ -119,8 +119,13 @@ class _dicestateState extends State<dicestate> {
                               Random random = new Random();
                               num1 = random.nextInt(6) + 1;
                               sum1=sum1+num1;
+                              if(num1==6){
+                               c1++;
+                              }
                               print(num1);
                             }
+
+
                             if(c1==0){
                               m="player 2 turns";
                             }
@@ -170,6 +175,9 @@ class _dicestateState extends State<dicestate> {
                             Random random = new Random();
                              num2 = random.nextInt(6)+1;
                               sum2=sum2+num2;
+                              if(num2==6){
+                                c2++;
+                              }
                             print(num2);
                             }
                             if(c2==0){
@@ -237,6 +245,9 @@ class _dicestateState extends State<dicestate> {
                               Random random = new Random();
                               num3 = random.nextInt(6) + 1;
                               sum3=sum3+num3;
+                              if(num3==6){
+                                c3++;
+                              }
                               print(num3);
                             }
                             if(c3==0){
@@ -286,7 +297,11 @@ class _dicestateState extends State<dicestate> {
                             Random random = new Random();
                             num4 = random.nextInt(6)+1;
                             sum4=sum4+num4;
+
                             c4--;
+                            if(num4==6){
+                              c4++;
+                            }
                             print(num4);}
                             if(c4==0){
                               result();
