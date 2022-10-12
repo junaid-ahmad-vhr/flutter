@@ -55,7 +55,8 @@ class gameover extends StatefulWidget {
 class _gameoverState extends State<gameover> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+      Container(
       color: Colors.black,
       child: Center(
         child: Column(
@@ -112,6 +113,7 @@ class _winState extends State<win> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
       home: Scaffold(
         body:
         Container(
@@ -122,20 +124,50 @@ class _winState extends State<win> {
                 image: AssetImage("assets/win.gif"),
                 fit: BoxFit.cover),
           ),
-            child:  Center(
-    child:  Container(
-    width: 500,
-    height: 300,
-    decoration: const BoxDecoration(
-    image: DecorationImage(
-    image: AssetImage("assets/win2.gif"),
-    fit: BoxFit.cover),
-    ),
+            child:
+            Container(
+                color: Colors.black,
+                child: Center(
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 500,
+                          height: 300,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/win2.gif"),
+                                fit: BoxFit.cover),
+                          ),
+
+                        ),
+
+                        ElevatedButton(
+                          child: Text("play again"),
+                          onPressed: () {
+                            AssetsAudioPlayer.newPlayer().open(
+                              Audio("assets/mixkit-magic-festive-melody-2986.wav"),
+
+                            );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const homepage()),
+                            );
+                          },
+
+
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(100, 100),
+                            shape: const CircleBorder(),
+                            backgroundColor: Colors.red,
+                          ),
+                        ),
+
+                      ],
+                    )
+
+                )
 
             ),
-
-
-    )
 
 
 
