@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:flat_3d_button/flat_3d_button.dart';
+import 'package:flutter/services.dart';
+
 
 void main() {
   runApp(const matchinggame());
@@ -20,10 +23,13 @@ class matchinggame extends StatelessWidget {
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.black,
-                Colors.red,
-                Colors.white,
-                Colors.black,
+                Colors.amber,
+
+                Colors.lightGreenAccent,
+                Colors.lightGreen,
+                Colors.green,
+                Colors.cyanAccent,
+                Colors.blueAccent,
               ],
             )
         ),
@@ -31,7 +37,7 @@ class matchinggame extends StatelessWidget {
             duration: 3000,
             splash: 'assets/icon.png',
             screenFunction: () async{
-              return homepage();
+              return home1();
             },
             splashTransition: SplashTransition.rotationTransition,
             backgroundColor: Colors.transparent
@@ -61,6 +67,9 @@ class _gameoverState extends State<gameover> {
       child: Center(
         child: Column(
           children: [
+            SizedBox(
+              height: 100,
+            ),
             Container(
               width: 500,
               height: 300,
@@ -71,9 +80,11 @@ class _gameoverState extends State<gameover> {
               ),
 
             ),
-
+           SizedBox(
+             height: 20,
+           ),
             ElevatedButton(
-              child: Text("play again"),
+              child: Text("Try again"),
               onPressed: () {
                 AssetsAudioPlayer.newPlayer().open(
                   Audio("assets/mixkit-magic-festive-melody-2986.wav"),
@@ -102,6 +113,126 @@ class _gameoverState extends State<gameover> {
 
   }
 }
+class home1 extends StatefulWidget {
+  const home1({Key? key}) : super(key: key);
+
+  @override
+  State<home1> createState() => _home1State();
+}
+
+class _home1State extends State<home1> {
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Container(
+        decoration: BoxDecoration(
+        gradient: LinearGradient(
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+        colors: [
+          Colors.amber,
+
+        Colors.lightGreenAccent,
+        Colors.lightGreen,
+        Colors.green,
+          Colors.cyanAccent,
+        Colors.blueAccent,
+        ],
+    )
+    ),
+    child: Column(
+    children: [
+      SizedBox(
+        height: 100,
+      ),
+      Container(
+        width: 100,
+        height: 100,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/st.gif"),
+              fit: BoxFit.cover),
+        ),
+
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Flat3dButton.text(
+        color: Colors.lightBlue,
+        onPressed:() {
+          AssetsAudioPlayer.newPlayer().open(
+            Audio("assets/mixkit-game-over-dark-orchestra-633.wav"),
+          );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const homepage()),
+          );
+
+        },
+        text: 'New Game',
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Flat3dButton.text(
+        color: Colors.lightBlue,
+        onPressed:() {
+          AssetsAudioPlayer.newPlayer().open(
+            Audio("assets/mixkit-game-over-dark-orchestra-633.wav"),
+          );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const homepage()),
+          );
+
+        },
+        text: 'Level 1',
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Flat3dButton.text(
+        color: Colors.lightBlue,
+        onPressed:() {
+          AssetsAudioPlayer.newPlayer().open(
+            Audio("assets/mixkit-game-over-dark-orchestra-633.wav"),
+          );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const page2()),
+          );
+
+        },
+        text: 'Level 2',
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Flat3dButton.text(
+        color: Colors.red,
+        onPressed:() {
+          SystemNavigator.pop();
+        },
+        text: 'Exit',
+      ),
+
+
+
+
+
+    ],
+    )
+
+      ),
+    
+    );
+    
+    
+  }
+}
+
 class win extends StatefulWidget {
   const win({Key? key}) : super(key: key);
 
@@ -116,20 +247,14 @@ class _winState extends State<win> {
         debugShowCheckedModeBanner: false,
       home: Scaffold(
         body:
-        Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/win.gif"),
-                fit: BoxFit.cover),
-          ),
-            child:
             Container(
                 color: Colors.black,
                 child: Center(
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 100,
+                        ),
                         Container(
                           width: 500,
                           height: 300,
@@ -140,9 +265,11 @@ class _winState extends State<win> {
                           ),
 
                         ),
-
+                         SizedBox(
+                           height: 30,
+                         ),
                         ElevatedButton(
-                          child: Text("play again"),
+                          child: Text("Want to play again"),
                           onPressed: () {
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/mixkit-magic-festive-melody-2986.wav"),
@@ -173,8 +300,7 @@ class _winState extends State<win> {
 
             ),
 
-          )
-    );
+          );
 
 
 
@@ -228,10 +354,13 @@ class _page2State extends State<page2> {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Colors.black,
-                    Colors.red,
-                    Colors.white,
-                    Colors.black,
+                    Colors.amber,
+
+                    Colors.lightGreenAccent,
+                    Colors.lightGreen,
+                    Colors.green,
+                    Colors.cyanAccent,
+                    Colors.blueAccent,
                   ],
                 )
             ),
@@ -1121,6 +1250,7 @@ class homepage extends StatefulWidget {
   @override
   State<homepage> createState() => _homepageState();
 }
+
 int hand1=0;
 int hand2=0;
 int hand3=0;
@@ -1141,6 +1271,9 @@ int num7=0;
 int num8=0;
 int num9=0;
 int num10=0;
+
+
+
 int c1=0;
 int c2=0;
 String m=" Game started";
@@ -1677,10 +1810,13 @@ class _homepageState extends State<homepage> {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  Colors.black,
-                  Colors.red,
-                  Colors.white,
-                  Colors.black,
+                  Colors.amber,
+
+                  Colors.lightGreenAccent,
+                  Colors.lightGreen,
+                  Colors.green,
+                  Colors.cyanAccent,
+                  Colors.blueAccent,
                 ],
               )
           ),
