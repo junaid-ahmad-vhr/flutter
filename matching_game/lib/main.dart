@@ -15,6 +15,7 @@ class matchinggame extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       home:
       Container(
@@ -246,6 +247,7 @@ class _winState extends State<win> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
       home: Scaffold(
+
         body:
             Container(
                 color: Colors.black,
@@ -1585,7 +1587,7 @@ result10(){
     num9=0;
     num10=0;
   }
-  else if(hand10!=1 && num6==10){
+  else if(hand10!=1 && num10==10){
     AssetsAudioPlayer.newPlayer().open(
       Audio("assets/mixkit-funny-fail-low-tone-2876.wav"),
 
