@@ -55,7 +55,7 @@ class _guessgameState extends State<guessgame> {
               height: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/dd.jpg"),
+                    image: AssetImage("assets/ss.jpg"),
                     fit: BoxFit.cover),
               ),
               child:Column(
