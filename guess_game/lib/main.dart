@@ -57,7 +57,7 @@ class _guessgameState extends State<guessgame> {
                   width: 10,
                 ),
                 const Text(
-                  'matching game',
+                  'Guess game',
                   style: TextStyle(color: Colors.white),
                 ),
               ],
