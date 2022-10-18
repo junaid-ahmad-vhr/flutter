@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'dart:math';
 void main() {
   runApp(const guessgame());
@@ -20,6 +21,7 @@ class _guessgameState extends State<guessgame> {
   int bt2=0;
   int bt3=0;
   int num4=0;
+
   Widget build(BuildContext context) {
     return  MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -51,11 +53,12 @@ class _guessgameState extends State<guessgame> {
 
           ),
           body: Container(
+
               width: double.infinity,
               height: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/ss.jpg"),
+                    image: AssetImage("assets/bas.jpg"),
                     fit: BoxFit.cover),
               ),
               child:Column(
@@ -102,42 +105,83 @@ class _guessgameState extends State<guessgame> {
                     },
                     child: Text("genrate random number"),
                   ),
-                  TextButton(
-                    onPressed: (){
-                      if(bt1==num1){
-                        print("correct");
+                  Container(
 
-                      }
-                      else
-                        print("wrong");
+                    width: 200,
+                    height: 40,
+                    child: TextButton(
 
-                    },
-                    child: Text("$bt1"),
+                      onPressed: (){
+
+                        if(bt1==num1){
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/correct.wav"),
+
+
+                          );
+
+                          print("ok");
+                        }
+                        else {
+                          print("wrong");
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/wrong.wav"),
+
+                          );
+                          print("ok");
+                        }
+                      },
+                      child: Text("$bt1"),
+                    ),
                   ),
-                  TextButton(
-                    onPressed: (){
-                      if(bt2==num1){
-                        print("correct");
-                      }
-                      else
-                        print("wrong");
+                  Container(
+                    child: TextButton(
+                      onPressed: (){
+                        if(bt2==num1){
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/correct.wav"),
 
+                          );
+                          print("ok");
+                        }
+                        else {
+                          print("wrong");
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/wrong.wav"),
 
-                    },
-                    child: Text("$bt2"),
+                          );
+                          print("ok");
+                        }
+
+                      },
+                      child: Text("$bt2"),
+                    ),
                   ),
-                  TextButton(
-                    onPressed: (){
-                      if(bt3==num1){
-                        print("correct");
-                      }
-                      else
-                        print("wrong");
+                  Container(
+                    child: TextButton(
+                      onPressed: (){
 
+                        if(bt3==num1){
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/correct.wav"),
 
-                    },
-                    child: Text("$bt3"),
+                          );
+                          print("correct");
+                        }
+                        else {
+                          AssetsAudioPlayer.newPlayer().open(
+                            Audio("assets/wrong.wav"),
+
+                          );
+                          print("ok");
+                        }
+
+                      },
+                      child: Text("$bt3"),
+                    ),
                   ),
+
+
                 ],
               )
           ),
