@@ -161,6 +161,7 @@ class _guessgameState extends State<guessgame> {
                             w=Colors.white;
                             w2=Colors.white;
                             w3=Colors.white;
+                            z=0;
 
                           });
 
