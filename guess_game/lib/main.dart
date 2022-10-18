@@ -190,10 +190,10 @@ class _guessgameState extends State<guessgame> {
                             setState(() {
                               w = g;
                             });
-                            print("ok");
+
                           }
                           else {
-                            print("wrong");
+
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/wrong.wav"),
 
@@ -211,7 +211,7 @@ class _guessgameState extends State<guessgame> {
                                 });
                               }
                             });
-                            print("ok");
+
                           }
                         }
                       },
@@ -241,7 +241,7 @@ class _guessgameState extends State<guessgame> {
 
 
                           else {
-                            print("wrong");
+
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/wrong.wav"),
 
@@ -261,7 +261,7 @@ class _guessgameState extends State<guessgame> {
                                 });
                               }
                             });
-                            print("ok");
+
                           }
                         }
                       },
@@ -286,7 +286,7 @@ class _guessgameState extends State<guessgame> {
                             setState(() {
                               w3 = g3;
                             });
-                            print("correct");
+
                           }
                           else {
                             AssetsAudioPlayer.newPlayer().open(
@@ -306,7 +306,7 @@ class _guessgameState extends State<guessgame> {
                                 });
                               }
                             });
-                            print("ok");
+
                           }
                         }
                       },
