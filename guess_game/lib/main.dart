@@ -19,9 +19,9 @@ class _guessgameState extends State<guessgame> {
   int num1=0;
   int num2=0;
   int num3=0;
-  int bt1=0;
-  int bt2=0;
-  int bt3=0;
+  int var1=0;
+  int var2=0;
+  int var3=0;
   int num4=0;
   Color r=Colors.red;
   Color w=Colors.white;
@@ -108,8 +108,8 @@ class _guessgameState extends State<guessgame> {
                           Random random3 = new Random();
                           num3 = random3.nextInt(10) + 1;
                           print(num3);
-                          Random priority = new Random();
-                          num4 = priority.nextInt(3) + 1;
+                          Random random4 = new Random();
+                          num4 = random4.nextInt(3) + 1;
                           print(num4);
                           m="Range of Number is 1-10";
                           z=1;
@@ -117,25 +117,25 @@ class _guessgameState extends State<guessgame> {
                           if(num4==1){
                             setState(() {
 
-                              bt1=num2;
-                              bt2=num3;
-                              bt3=num1;
+                              var1=num2;
+                              var2=num3;
+                              var3=num1;
                             });
 
                           }
                           if(num4==2){
                             setState(() {
 
-                              bt1=num1;
-                              bt2=num2;
-                              bt3=num3;
+                              var1=num1;
+                              var2=num2;
+                              var3=num3;
                             });
                           }
                           if(num4==3) {
                             setState(() {
-                              bt1 = num3;
-                              bt2 = num1;
-                              bt3 = num2;
+                              var1 = num3;
+                              var2 = num1;
+                              var3 = num2;
                             });
                           };
                         },
@@ -153,9 +153,9 @@ class _guessgameState extends State<guessgame> {
                             num1=0;
                             num2=0;
                             num3=0;
-                            bt1=0;
-                            bt2=0;
-                            bt3=0;
+                            var1=0;
+                            var2=0;
+                            var3=0;
                             num4=0;
                             m="GUESS GAME";
                             w=Colors.white;
@@ -182,7 +182,7 @@ class _guessgameState extends State<guessgame> {
 
                       onPressed: (){
                         if(z==1) {
-                          if (bt1 == num1) {
+                          if (var1 == num1) {
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/correct.wav"),
 
@@ -201,12 +201,12 @@ class _guessgameState extends State<guessgame> {
                             );
                             setState(() {
                               w = r;
-                              if (bt2 == num1) {
+                              if (var2 == num1) {
                                 setState(() {
                                   w2 = g2;
                                 });
                               }
-                              else if (bt3 == num1) {
+                              else if (var3 == num1) {
                                 setState(() {
                                   w3 = g3;
                                 });
@@ -216,7 +216,7 @@ class _guessgameState extends State<guessgame> {
                           }
                         }
                       },
-                      child: Text("i)  $bt1"),
+                      child: Text("i)  $var1"),
                     ),
                   ),
                   SizedBox(
@@ -229,7 +229,7 @@ class _guessgameState extends State<guessgame> {
                     child: TextButton(
                       onPressed: (){
                         if(z==1) {
-                          if (bt2 == num1) {
+                          if (var2 == num1) {
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/correct.wav"),
 
@@ -251,12 +251,12 @@ class _guessgameState extends State<guessgame> {
 
                             setState(() {
                               w2 = r2;
-                              if (bt3 == num1) {
+                              if (var3 == num1) {
                                 setState(() {
                                   w3 = g3;
                                 });
                               }
-                              else if (bt1 == num1) {
+                              else if (var1 == num1) {
                                 setState(() {
                                   w = g;
                                 });
@@ -266,7 +266,7 @@ class _guessgameState extends State<guessgame> {
                           }
                         }
                       },
-                      child: Text("ii)  $bt2"),
+                      child: Text("ii)  $var2"),
                     ),
                   ),
                   SizedBox(
@@ -279,7 +279,7 @@ class _guessgameState extends State<guessgame> {
                     child: TextButton(
                       onPressed: (){
                         if(z==1) {
-                          if (bt3 == num1) {
+                          if (var3 == num1) {
                             AssetsAudioPlayer.newPlayer().open(
                               Audio("assets/correct.wav"),
 
@@ -296,12 +296,12 @@ class _guessgameState extends State<guessgame> {
                             );
                             setState(() {
                               w3 = r3;
-                              if (bt2 == num1) {
+                              if (var2 == num1) {
                                 setState(() {
                                   w2 = g2;
                                 });
                               }
-                              else if (bt1 == num1) {
+                              else if (var1 == num1) {
                                 setState(() {
                                   w = g;
                                 });
@@ -311,7 +311,7 @@ class _guessgameState extends State<guessgame> {
                           }
                         }
                       },
-                      child: Text("iii)  $bt3"),
+                      child: Text("iii)  $var3"),
                     ),
                   )
 
