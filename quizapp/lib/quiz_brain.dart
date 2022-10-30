@@ -6,9 +6,10 @@ class QuizBrain {
 
 
   List<Question>  _questionBank = [
-  ]..shuffle();
+  ];
   void insertquestion(String a,bool b){
     _questionBank.add(Question(a,b));
+    _questionBank.shuffle();
 
   }
   void resetlist(){
