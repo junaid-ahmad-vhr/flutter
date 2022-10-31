@@ -12,7 +12,14 @@ class bmicalc extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: inputpage(),
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        scaffoldBackgroundColor: Colors.cyan,
+        textTheme: TextTheme(
+          
+        )
+
+      )
     );
   }
 }
@@ -26,9 +33,16 @@ class inputpage extends StatefulWidget {
 class _inputpageState extends State<inputpage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("test"),
+    return MaterialApp(
+      home: Scaffold(
+
+        body:  Center(
+            child: Text("test"),
+          )
+      ),
+
     );
+
   }
 }
 
