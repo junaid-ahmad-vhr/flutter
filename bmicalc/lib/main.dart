@@ -12,12 +12,9 @@ class bmicalc extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: inputpage(),
-      theme: ThemeData(
+      theme: ThemeData.dark().copyWith(
         primaryColor: Colors.red,
         scaffoldBackgroundColor: Colors.cyan,
-        textTheme: TextTheme(
-          
-        )
 
       )
     );
