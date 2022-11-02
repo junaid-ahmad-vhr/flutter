@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-class inputpage extends StatefulWidget {
-  const inputpage({Key? key}) : super(key: key);
 
+class InputPage extends StatefulWidget {
   @override
-  State<inputpage> createState() => _inputpageState();
+  _InputPageState createState() => _InputPageState();
 }
 
-class _inputpageState extends State<inputpage> {
+class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-
-          body:  Center(
-            child: Text("test"),
-          )
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('BMI CALCULATOR'),
+      ),
+      body: Center(
+        child: Text('Body Text'),
       ),
 
-    );
 
+    );
   }
 }
