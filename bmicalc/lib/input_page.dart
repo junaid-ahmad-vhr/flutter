@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icontextfile.dart';
+import 'container.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -56,49 +58,5 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class RepeatTextandIconWidget extends StatelessWidget {
-  RepeatTextandIconWidget({required this.iconData,this.label});
-  final IconData iconData;
-  final String  label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-         Icon(
-           iconData,
-           size: 85.0,
-
-         ),
-        SizedBox(
-          height: 20.0,
-        ),
-        Text(label,style: TextStyle(
-          fontSize: 18.0,
-          color: Color(0xFF8D8E98)
-        ),)
-      ],
-    );
-  }
-}
-
-class RepeatContainerCode extends StatelessWidget {
-  RepeatContainerCode({required this.colors,required this.cardWidgets,});
- final Color   colors;
- final Widget  cardWidgets;
 
 
-  @override
-  Widget build(BuildContext context) {
-
-    return Container(
-
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-          color: colors,
-          borderRadius: BorderRadius.circular(10.0)
-      ),
-    );
-  }
-}
