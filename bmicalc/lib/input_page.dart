@@ -15,19 +15,20 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color malecolor=deactiveColor;
-  Color femaleColor=deactiveColor;
-  void updateColor(Gender gendertype){
-    if(gendertype==Gender.male){
-      malecolor=activeColor;
-      femaleColor=deactiveColor;
-    }
-    if(gendertype==Gender.female){
-      malecolor=deactiveColor;
-      femaleColor=activeColor;
-    }
-
-  }
+  Gender ? selectgender;
+  // Color malecolor=deactiveColor;
+  // Color femaleColor=deactiveColor;
+  // void updateColor(Gender gendertype){
+  //   if(gendertype==Gender.male){
+  //     malecolor=activeColor;
+  //     femaleColor=deactiveColor;
+  //   }
+  //   if(gendertype==Gender.female){
+  //     malecolor=deactiveColor;
+  //     femaleColor=activeColor;
+  //   }
+  //
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,11 +42,11 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    updateColor(1);
+                   selectgender=Gender.male;
                   });
                 },
                 child: RepeatContainerCode(
-                  colors: malecolor,
+                  colors: selectgender==Gender.male?activeColor:deactiveColor,
                     cardWidgets:RepeatTextandIconWidget(
                       iconData: FontAwesomeIcons.male,
                       label: 'Male',
@@ -55,11 +56,11 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: GestureDetector(
                 onTap: (){
                   setState(() {
-                    updateColor(2);
+                    selectgender=Gender.female;
                   });
                 },
                 child: RepeatContainerCode(
-                  colors: femaleColor,
+                    colors: selectgender==Gender.female?activeColor:deactiveColor,
                   cardWidgets:RepeatTextandIconWidget(
                   iconData: FontAwesomeIcons.personDress,
                   label: 'Female',
