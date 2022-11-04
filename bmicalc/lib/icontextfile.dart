@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RepeatTextandIconWidget extends StatelessWidget {
-  RepeatTextandIconWidget({required this.iconData,this.label});
+  RepeatTextandIconWidget({required this.iconData,required this.label});
   final IconData iconData;
   final String   label;
 

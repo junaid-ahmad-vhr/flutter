@@ -11,6 +11,7 @@ class RepeatContainerCode extends StatelessWidget {
     return Container(
 
       margin: EdgeInsets.all(15.0),
+      child: cardWidgets,
       decoration: BoxDecoration(
           color: colors,
           borderRadius: BorderRadius.circular(10.0)
