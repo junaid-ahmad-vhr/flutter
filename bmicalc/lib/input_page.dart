@@ -18,6 +18,7 @@ class _InputPageState extends State<InputPage> {
   Gender ? selectgender;
   int sliderheight=180;
   int sliderweight=60;
+  int sliderAge=20;
   // Color malecolor=deactiveColor;
   // Color femaleColor=deactiveColor;
   // void updateColor(Gender gendertype){
@@ -113,7 +114,26 @@ class _InputPageState extends State<InputPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        
+                        Roundicon(
+                           iconData:FontAwesomeIcons.minus ,
+                          onPress: (){
+                             setState(() {
+                               sliderweight--;
+                             });
+                          },
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Roundicon(
+                          iconData:FontAwesomeIcons.plus ,
+                          onPress: (){
+                            setState(() {
+                              sliderweight++;
+                            });
+                          },
+                        )
+
                       ],
                     )
                   ],
@@ -125,8 +145,50 @@ class _InputPageState extends State<InputPage> {
               Expanded(child: RepeatContainerCode(
                 onpressed: (){},
               colors: Color(0xFF1D1E33),
-              cardWidgets: Column())
-                ) ])),
+                cardWidgets: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Age',style: klabelstyle,),
+                    Text(sliderAge.toString(),style: Knumberstyle,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Roundicon(
+                          iconData:FontAwesomeIcons.minus ,
+                          onPress: (){
+                            setState(() {
+                              sliderAge--;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Roundicon(
+                          iconData:FontAwesomeIcons.plus ,
+                          onPress: (){
+                            setState(() {
+                              sliderAge++;
+                            });
+                          },
+                        )
+
+                      ],
+                    )
+                  ],
+
+                ),)
+                ),
+
+              ])
+          ),
+          Container(
+            color:Color(0xFFEB1555),
+            margin: EdgeInsets.only(top: 10.0),
+            width: double.infinity,
+            height: 70.0,
+
+          )
 
         ],
 
@@ -137,5 +199,27 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+class Roundicon extends StatelessWidget {
+Roundicon({required this.iconData, required this.onPress});
+final IconData iconData;
+final void Function()? onPress;
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(iconData),
+      onPressed: onPress,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(
+        height:40.0,
+        width:56.0,
+      ),
+      shape:CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+    );
+  }
+}
 
 
