@@ -9,3 +9,7 @@ const Knumberstyle=TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+const Klargebuttonstyle=TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
