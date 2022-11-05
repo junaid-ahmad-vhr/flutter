@@ -3,6 +3,10 @@ import 'constentfile.dart';
 import 'container.dart';
 import 'input_page.dart';
 class ResultScreen extends StatelessWidget {
+  ResultScreen({required this.interpretation,required this.bmiResult,required this.resultText});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
 
   @override
@@ -31,9 +35,9 @@ class ResultScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center ,
                   children: [
-                    Text('Normal',style: kResultTextStyle,),
-                    Text('18.3',style: kBMITextStyle,),
-                    Text('BMI is Low You should have to work More',textAlign: TextAlign.center, style: kBodyTextStyle,
+                    Text(resultText.toUpperCase(),style: kResultTextStyle,),
+                    Text(bmiResult,style: kBMITextStyle,),
+                    Text(interpretation ,textAlign: TextAlign.center, style: kBodyTextStyle,
                     ),
 
                   ],
