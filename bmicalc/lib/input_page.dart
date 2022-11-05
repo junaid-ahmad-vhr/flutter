@@ -187,7 +187,7 @@ class _InputPageState extends State<InputPage> {
           GestureDetector(
             onTap: (){
               CalculatorBrain calc=CalculatorBrain(height: sliderheight, weight: sliderweight);
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen(interpretation: calc.getInterpretation(), bmiResult: calc.calculateBMI() , resultText: calc.getResult())));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen( bmiResult: calc.calculateBMI().toString() , resultText: calc.getResult(),interpretation: calc.getInterpretation(),)));
 
             },
             child: Container(
