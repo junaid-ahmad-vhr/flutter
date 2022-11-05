@@ -39,38 +39,43 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(child: Row(
             children: [
-              Expanded(child: GestureDetector(
-                onTap: (){
-                  setState(() {
-                   selectgender=Gender.male;
-                  });
-                },
+              Expanded(
                 child: RepeatContainerCode(
+                  onpressed: (){
+                    setState(() {
+                      selectgender=Gender.male;
+                    });
+
+                  },
                   colors: selectgender==Gender.male?activeColor:deactiveColor,
                     cardWidgets:RepeatTextandIconWidget(
+
                       iconData: FontAwesomeIcons.male,
                       label: 'Male',
                     )
                 ),
-              ), ),
-              Expanded(child: GestureDetector(
-                onTap: (){
-                  setState(() {
-                    selectgender=Gender.female;
-                  });
-                },
+
+              ),
+              Expanded(
+
                 child: RepeatContainerCode(
+                    onpressed: (){
+                      setState(() {
+                        selectgender=Gender.female;
+                      });
+                    },
                     colors: selectgender==Gender.female?activeColor:deactiveColor,
                   cardWidgets:RepeatTextandIconWidget(
                   iconData: FontAwesomeIcons.personDress,
                   label: 'Female',
                   ) ),
-              )
+
               )
 
             ],
           ) ),
           Expanded(child: RepeatContainerCode(
+            onpressed: (){},
             colors: Color(0xFF1D1E33),
             cardWidgets:RepeatTextandIconWidget(
             iconData: FontAwesomeIcons.male,
@@ -79,6 +84,7 @@ class _InputPageState extends State<InputPage> {
           Expanded(child: Row(
               children: [
               Expanded(child: RepeatContainerCode(
+                onpressed: (){},
           colors: Color(0xFF1D1E33),
             cardWidgets:RepeatTextandIconWidget(
               iconData: FontAwesomeIcons.male,
@@ -86,6 +92,7 @@ class _InputPageState extends State<InputPage> {
 
               ), ),),
               Expanded(child: RepeatContainerCode(
+                onpressed: (){},
               colors: Color(0xFF1D1E33),
               cardWidgets:RepeatTextandIconWidget(
               iconData: FontAwesomeIcons.male,
