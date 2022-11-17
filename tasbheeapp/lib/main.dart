@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
         home: tasbhee() //create new class for 'home' property of MaterialApp()
-      //to escape 'No MaterialLocalizations found' error
+      
     );
   }
 }
