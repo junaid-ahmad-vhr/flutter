@@ -165,7 +165,14 @@ class _tasbheeState extends State<tasbhee> {
 
                                         backgroundColor: Colors.black,
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        setState(() {
+                                          tnmae=varname;
+                                          limitchecker=varnumber;
+                                          Counter=0;
+                                        });
+                                        Navigator.pop(context);
+                                      },
                                     ));
                                     setState(() {
                                       tnmae=varname;
