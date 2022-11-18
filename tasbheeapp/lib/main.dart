@@ -1,26 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 void main(){
-  runApp(MyApp());
+  runApp(splash());
 }
-int num=0;
-int limitchecker=0;
-int Counter=0;
-String tnmae="Sallallahu Alaihi Wasallam";
+class splash extends StatelessWidget {
+  const splash({Key? key}) : super(key: key);
 
-String ? v;
+  @override
+
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+
+      home:mm(),
+    );
 
 
-List<ElevatedButton> mylist = [];
-class MyApp extends StatelessWidget{
+
+  }
+}
+class mm extends StatefulWidget {
+  const mm({Key? key}) : super(key: key);
+
+  @override
+  State<mm> createState() => _mmState();
+}
+
+class _mmState extends State<mm> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: tasbhee() //create new class for 'home' property of MaterialApp()
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.black,
+              Colors.amber,
+
+              Colors.black,
+
+            ],
+          )
+      ),
+      child:  AnimatedSplashScreen.withScreenFunction(
+          duration: 3000,
+          splash: 'assets/c.png',
+          screenFunction: () async{
+            return tasbhee();
+          },
+          splashTransition: SplashTransition.sizeTransition,
+          backgroundColor: Colors.transparent
+
+      ),
 
     );
   }
 }
+
+int num=0;
+int limitchecker=10000;
+int Counter=0;
+String tnmae="Sallallahu Alaihi Wasallam";
+
+
+
+
+List<ElevatedButton> mylist = [];
+
+
+
 
 class tasbhee extends StatefulWidget {
   const tasbhee({Key? key}) : super(key: key);
@@ -81,11 +133,14 @@ class _tasbheeState extends State<tasbhee> {
                     backgroundColor: Colors.black,
                   ),
                     onPressed:() {
+                    ///custome tesbhee
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/cc.wav"),
+                      );
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
-                          return Expanded(
-                            child: AlertDialog(
+                          return AlertDialog(
 
                               title: Text('Custom Tesbhee '),
                               content: Container(
@@ -102,6 +157,10 @@ class _tasbheeState extends State<tasbhee> {
                                         border: OutlineInputBorder(),
                                         suffixIcon: IconButton(
                                             onPressed:(){
+                                              //text field
+                                              AssetsAudioPlayer.newPlayer().open(
+                                                Audio("assets/cc.wav"),
+                                              );
                                               Name.clear();
                                             },
                                             icon: const Icon(Icons.clear_rounded)
@@ -121,6 +180,10 @@ class _tasbheeState extends State<tasbhee> {
                                         border: OutlineInputBorder(),
                                         suffixIcon: IconButton(
                                             onPressed:(){
+                                              //limit
+                                              AssetsAudioPlayer.newPlayer().open(
+                                                Audio("assets/cc.wav"),
+                                              );
                                               number.clear();
                                             },
                                             icon: const Icon(Icons.clear_rounded)
@@ -131,7 +194,7 @@ class _tasbheeState extends State<tasbhee> {
 
 
                                     ),
-                                    Text('$v')
+
 
                                   ],
                                 ),
@@ -141,6 +204,10 @@ class _tasbheeState extends State<tasbhee> {
                                 TextButton(
 
                                   onPressed: () {
+                                    //cancel
+                                    AssetsAudioPlayer.newPlayer().open(
+                                      Audio("assets/cc.wav"),
+                                    );
                                     Navigator.pop(context);
                                   },
                                   child: Text('CANCEL'),
@@ -148,6 +215,10 @@ class _tasbheeState extends State<tasbhee> {
                                 TextButton(
 
                                   onPressed: () {
+                                    //add
+                                    AssetsAudioPlayer.newPlayer().open(
+                                      Audio("assets/cc.wav"),
+                                    );
 
                                     num++;
                                     String varname=Name.text;
@@ -166,12 +237,21 @@ class _tasbheeState extends State<tasbhee> {
                                         backgroundColor: Colors.black,
                                       ),
                                       onPressed: () {
+                                        //buten list
+                                        AssetsAudioPlayer.newPlayer().open(
+                                          Audio("assets/cc.wav"),
+                                        );
                                         setState(() {
+
                                           tnmae=varname;
                                           limitchecker=varnumber;
                                           Counter=0;
+                                          Get.to(tasbhee());
+                                          Navigator.pop(context);
                                         });
                                         Navigator.pop(context);
+                                        Get
+                                            .to(tasbhee());
                                       },
                                     ));
                                     setState(() {
@@ -188,7 +268,6 @@ class _tasbheeState extends State<tasbhee> {
                                   child: Text('ADD Tesbhee'),
                                 ),
                               ],
-                            ),
                           );
                         },
                       );
@@ -203,6 +282,10 @@ class _tasbheeState extends State<tasbhee> {
                     backgroundColor: Colors.black,
                   ),
                   onPressed: () {
+                    // screen 2
+                    AssetsAudioPlayer.newPlayer().open(
+                      Audio("assets/cc.wav"),
+                    );
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>tasbhee2()));
                   },
                 ),
@@ -240,23 +323,35 @@ class _tasbheeState extends State<tasbhee> {
                       ),
                     ),
                     onPressed: () {
+                      // completed
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/cc.wav"),
+                      );
                       if(Counter==limitchecker){
                           showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return Expanded(
-                              child: AlertDialog(
+                            return AlertDialog(
 
                                 title: Text('Success '),
                                 // To display the title it is optional
                                 content: Container(
-                                  height: 100,
+                                  height: 80,
                                   child: Column(children: [
                                     Text('You completed  $tnmae'),
                                     Text('Limit Reached $limitchecker'),
-                                    TextButton( // FlatButton widget is used to make a text to work like a button
+                                    TextButton(
+                                      style: ElevatedButton.styleFrom(
+                                        fixedSize: const Size(40, 40),
+                                        shape: const CircleBorder(),
+                                        backgroundColor: Colors.amber,
+                                      ),
+                                    // FlatButton widget is used to make a text to work like a button
 
                                       onPressed: () {
+                                        AssetsAudioPlayer.newPlayer().open(
+                                          Audio("assets/cc.wav"),
+                                        );
                                          Navigator.pop(context);
 
                                       },
@@ -269,7 +364,6 @@ class _tasbheeState extends State<tasbhee> {
 
                                   ),
                                 ),
-                              ),
                             );
                           }
                         );
@@ -308,6 +402,9 @@ class _tasbheeState extends State<tasbhee> {
                       ),
                     ),
                     onPressed: () {
+                      AssetsAudioPlayer.newPlayer().open(
+                        Audio("assets/cc.wav"),
+                      );
                       setState(() {
                         Counter=0;
                       });
@@ -414,13 +511,16 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
                            tnmae="Subhan Allah";
                            limitchecker=33;
                            Counter=0;
-                           Navigator.pop(context);
+                           Get.to(tasbhee());
                          });
-
+Get.to(tasbhee());
                        },
 
 
@@ -444,13 +544,16 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
                            tnmae="Alhamdulillah";
                            limitchecker=33;
                            Counter=0;
-                           Navigator.pop(context);
+                           Get.to(tasbhee());
                          });
-
+                         Get.to(tasbhee());
                        },
 
 
@@ -473,14 +576,16 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
                            tnmae="Allah hu Aakbar";
                            limitchecker=34;
                            Counter=0;
-                           Navigator.pop(context);
-
+                           Get.to(tasbhee());
                          });
-
+                         Get.to(tasbhee());
                        },
 
 
@@ -528,13 +633,16 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
-                           tnmae="Istagfirullah";
+                           tnmae="Astagfirullah";
                            limitchecker=100;
                            Counter=0;
-                           Navigator.pop(context);
-                         });
 
+                         });
+                         Get.to(tasbhee());
                        },
 
 
@@ -558,13 +666,16 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
                            tnmae="la ilaha illallah muhammadur rasulullah";
                            limitchecker=100;
                            Counter=0;
-                           Navigator.pop(context);
-                         });
 
+                         });
+                         Get.to(tasbhee());
                        },
 
 
@@ -587,6 +698,9 @@ class _tasbhee2State extends State<tasbhee2> {
                          ),
                        ),
                        onPressed: () {
+                         AssetsAudioPlayer.newPlayer().open(
+                           Audio("assets/cc.wav"),
+                         );
                          setState(() {
                            tnmae="Allah Hu";
                            limitchecker=100;
@@ -594,7 +708,8 @@ class _tasbhee2State extends State<tasbhee2> {
 
 
                          });
-                         Navigator.pop(context);
+
+                         Get.to(tasbhee());
                        },
 
 
