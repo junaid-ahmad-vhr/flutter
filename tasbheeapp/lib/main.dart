@@ -223,6 +223,9 @@ class _tasbheeState extends State<tasbhee> {
                                     num++;
                                     String varname=Name.text;
                                     int  varnumber=int.parse(number.text);
+                                    if( varnumber>10000){
+                                      varnumber=10000;
+                                    }
                                     mylist.add( ElevatedButton(
                                       child: Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
