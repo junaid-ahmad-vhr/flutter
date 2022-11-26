@@ -1,6 +1,7 @@
 # weatherapp
 # giff
-![Uploading WhatsApp Video 2022-11-26 at 12.24.49 PM.gif…]()
+![WhatsApp Video 2022-11-26 at 12 24 49 PM](https://user-images.githubusercontent.com/64838868/204077583-77c1a5fe-813d-4be5-a3f1-871f6625fe6f.gif)
+
 # screenshots
 
 ![WhatsApp Image 2022-11-26 at 12 24 37 PM](https://user-images.githubusercontent.com/64838868/204077469-3e9059fe-4946-4caf-ad82-b8f4d6b8a84f.jpeg)
