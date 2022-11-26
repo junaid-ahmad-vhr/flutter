@@ -13,15 +13,12 @@ class Climate extends StatefulWidget {
 
 class _ClimateState extends State<Climate> {
   String ? _cityEntered;
-  void showStuff() async {
-    Map data = await getWeather(util.apiId, util.defaultCity);
-    print(data.toString());
-  }
+
   Future _goToNextScreen(BuildContext context) async {
     Map ? results = await Navigator.of(context)
-        .push(new MaterialPageRoute<Map>(builder: (BuildContext context) {
+        .push( MaterialPageRoute<Map>(builder: (BuildContext context) {
       //change to Map instead of dynamic for this to work
-      return new ChangeCity();
+      return  ChangeCity();
     }));
 
     if (results != null && results.containsKey('enter')) {
@@ -118,15 +115,21 @@ class _ClimateState extends State<Climate> {
     );
   }
    Future<Map> getWeather(String appId, String city) async {
-    String  apiUrl='http://api.openweathermap.org/data/2.5/weather?q=$city&appid='
+    String ? apiUrl='http://api.openweathermap.org/data/2.5/weather?q=$city&appid='
         '${util.apiId}&units=imperial';
-    http.Response   response = await http.get(Uri.parse(apiUrl));
+    http.Response ?  response = await http.get(Uri.parse(apiUrl));
 
     return json.decode(response.body);
   }
 }
-class ChangeCity extends StatelessWidget {
+class ChangeCity extends StatefulWidget {
+  @override
+  State<ChangeCity> createState() => _ChangeCityState();
+}
+
+class _ChangeCityState extends State<ChangeCity> {
   var _cityFieldController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,7 +139,7 @@ class ChangeCity extends StatelessWidget {
         centerTitle: true,
       ),
       body: Stack(
-        children: <Widget>[
+        children: [
           Center(
             child: Image.asset(
               'assets/snow.png',
@@ -146,7 +149,7 @@ class ChangeCity extends StatelessWidget {
             ),
           ),
           ListView(
-            children: <Widget>[
+            children: [
               ListTile(
                 title: TextField(
                   decoration: InputDecoration(
@@ -158,10 +161,23 @@ class ChangeCity extends StatelessWidget {
               ),
               ListTile(
                 title: TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor : Colors.white,
+                      backgroundColor: Colors.red,
+
+                    ),
                     onPressed: () {
+
+
+
                       Navigator.pop(
-                          context, {'enter': _cityFieldController.text});
+                          context,
+                          {'enter': _cityFieldController.text});
+                     
+
                     },
+
+
 
                     child: Text('Get Weather')),
               )
