@@ -17,6 +17,18 @@ class _ClimateState extends State<Climate> {
           print('clicked');
         }, icon: Icon(Icons.menu))
         ],),
+      body: Stack(
+         children: [
+           Center(
+             child: Image(
+               image: AssetImage('assets/um.jpg'),
+               height: 1200.0,
+               width: 600.0,
+               fit: BoxFit.fill,
+             ),
+           )
+         ],
+      ),
 
 
 
