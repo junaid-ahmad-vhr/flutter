@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import '../utills/apifile.dart' as util;
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 class Climate extends StatefulWidget {
   const Climate({Key? key}) : super(key: key);
 
@@ -9,6 +13,7 @@ class Climate extends StatefulWidget {
 class _ClimateState extends State<Climate> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(title: Text('Climate App'),
       backgroundColor: Colors.red,
@@ -40,6 +45,12 @@ class _ClimateState extends State<Climate> {
 
 
     );
+  }
+  Future<Map> getWeather(String appId,String city)async{
+    String ? apiUrl=' https://api.openweathermap.org/data/2.5/weather?q=$city&appid=${util.apiId}&units=imperial';
+    http.Response ? response = await http.get(Uri.parse(apiUrl));
+
+    return json.decode(response.body);
   }
 }
 TextStyle citystyle(){
