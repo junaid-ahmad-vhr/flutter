@@ -17,6 +17,20 @@ class _ClimateState extends State<Climate> {
     Map data = await getWeather(util.apiId, util.defaultCity);
     print(data.toString());
   }
+  Future _goToNextScreen(BuildContext context) async {
+    Map ? results = await Navigator.of(context)
+        .push(new MaterialPageRoute<Map>(builder: (BuildContext context) {
+      //change to Map instead of dynamic for this to work
+      return new ChangeCity();
+    }));
+
+    if (results != null && results.containsKey('enter')) {
+      _cityEntered = results['enter'];
+
+//      debugPrint("From First screen" + results['enter'].toString());
+
+    }
+  }
   @override
   Widget build(BuildContext context) {
     Widget updateTempWidget(String city) {
@@ -63,7 +77,7 @@ class _ClimateState extends State<Climate> {
       backgroundColor: Colors.red,
       actions: [
         IconButton(onPressed: (){
-          showStuff();
+          _goToNextScreen(context);
         }, icon: Icon(Icons.menu))
         ],),
       body: Stack(
@@ -109,6 +123,53 @@ class _ClimateState extends State<Climate> {
     http.Response   response = await http.get(Uri.parse(apiUrl));
 
     return json.decode(response.body);
+  }
+}
+class ChangeCity extends StatelessWidget {
+  var _cityFieldController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text('Change City'),
+        centerTitle: true,
+      ),
+      body: Stack(
+        children: <Widget>[
+          Center(
+            child: Image.asset(
+              'assets/snow.png',
+              width: 590.0,
+              height: 1200.0,
+              fit: BoxFit.fill,
+            ),
+          ),
+          ListView(
+            children: <Widget>[
+              ListTile(
+                title: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter City',
+                  ),
+                  controller: _cityFieldController,
+                  keyboardType: TextInputType.text,
+                ),
+              ),
+              ListTile(
+                title: TextButton(
+                    onPressed: () {
+                      Navigator.pop(
+                          context, {'enter': _cityFieldController.text});
+                    },
+
+                    child: Text('Get Weather')),
+              )
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
 
