@@ -109,23 +109,16 @@ class _ClimateState extends State<Climate> {
           SizedBox(
             height: 20,
           ),
-          Center(
-            child:  Container(
-              alignment: Alignment.topRight,
+         Container(
+              alignment: Alignment.center,
               margin: EdgeInsets.fromLTRB(0.0, 10.0, 20.0, 0.0) ,
               child: Text(
                 '${_cityEntered == null ? util.defaultCity : _cityEntered}',
                 style: citystyle(),
               ),
             ),
-          ),
-          Center(
-            child: Image(
-              image: AssetImage('assets/rain.png'),
-              height: 100.0,
-              width: 100.0,
-            ),
-          ),
+
+      
           Container(
             margin: EdgeInsets.fromLTRB(30.0, 90.0, 0.0, 0.0),
             child: updateTempWidget(
