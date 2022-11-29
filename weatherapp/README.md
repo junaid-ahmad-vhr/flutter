@@ -1,6 +1,9 @@
 # weatherapp
 # updated in 1 Screen
 ![WhatsApp Image 2022-11-29 at 10 05 21 PM](https://user-images.githubusercontent.com/64838868/204595962-13b82e0e-1f9b-439f-8426-461f798b4230.jpeg)
+# giff updated
+![WhatsApp Video 2022-11-29 at 10 12 38 PM](https://user-images.githubusercontent.com/64838868/204598785-d2b48349-758b-404e-be87-cea3df4ee755.gif)
+
 # giff
 ![WhatsApp Video 2022-11-26 at 12 24 49 PM](https://user-images.githubusercontent.com/64838868/204077583-77c1a5fe-813d-4be5-a3f1-871f6625fe6f.gif)
 
