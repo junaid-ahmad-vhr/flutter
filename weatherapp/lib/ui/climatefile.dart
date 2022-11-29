@@ -14,20 +14,9 @@ class Climate extends StatefulWidget {
 class _ClimateState extends State<Climate> {
   String ? _cityEntered;
 
-  Future _goToNextScreen(BuildContext context) async {
-    Map ? results = await Navigator.of(context)
-        .push( MaterialPageRoute<Map>(builder: (BuildContext context) {
-      //change to Map instead of dynamic for this to work
-      return  ChangeCity();
-    }));
+  var _cityFieldController = TextEditingController();
 
-    if (results != null && results.containsKey('enter')) {
-      _cityEntered = results['enter'];
 
-//      debugPrint("From First screen" + results['enter'].toString());
-
-    }
-  }
   @override
   Widget build(BuildContext context) {
     Widget updateTempWidget(String city) {
@@ -71,50 +60,85 @@ class _ClimateState extends State<Climate> {
 
     return Scaffold(
       appBar: AppBar(title: Text('Climate App'),
-      backgroundColor: Colors.red,
-      actions: [
-        IconButton(onPressed: (){
-          _goToNextScreen(context);
-        }, icon: Icon(Icons.menu))
-        ],),
+        backgroundColor: Colors.purpleAccent,
+      ),
       body: Stack(
-         children: [
-           Center(
-             child: Image(
-               image: AssetImage('assets/um.jpg'),
-               height: 1200.0,
-               width: 600.0,
-               fit: BoxFit.fill,
-             ),
-           ),
-           Container(
-             alignment: Alignment.topRight,
-             margin: EdgeInsets.fromLTRB(0.0, 10.0, 20.0, 0.0) ,
-             child: Text(
-               '${_cityEntered == null ? util.defaultCity : _cityEntered}',
-               style: citystyle(),
-             ),
-           ),
-           Center(
-             child: Image(
-               image: AssetImage('assets/rain.png'),
-               height: 100.0,
-               width: 100.0,
-             ),
-           ),
-           Container(
-             margin: EdgeInsets.fromLTRB(30.0, 90.0, 0.0, 0.0),
-             child: updateTempWidget(
-                 '${_cityEntered == null ? util.defaultCity : _cityEntered}'),
-           ),
-         ],
+        children: [
+          Center(
+            child: Image(
+              image: AssetImage('assets/sst.jpg'),
+              height: 1200.0,
+              width: 600.0,
+              fit: BoxFit.fill,
+            ),
+          ),
+
+          ListView(
+            children: [
+              ListTile(
+                title: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Enter City',
+                  ),
+                  controller: _cityFieldController,
+                  keyboardType: TextInputType.text,
+                ),
+              ),
+              ListTile(
+                title: TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor : Colors.white,
+                      backgroundColor: Colors.purpleAccent,
+
+                    ),
+                    onPressed: () {
+
+                      setState(() {
+                        _cityEntered= _cityFieldController.text;
+                      });
+
+
+                    },
+
+
+
+                    child: Text('Get Weather')),
+              )
+            ],
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child:  Container(
+              alignment: Alignment.topRight,
+              margin: EdgeInsets.fromLTRB(0.0, 10.0, 20.0, 0.0) ,
+              child: Text(
+                '${_cityEntered == null ? util.defaultCity : _cityEntered}',
+                style: citystyle(),
+              ),
+            ),
+          ),
+          Center(
+            child: Image(
+              image: AssetImage('assets/rain.png'),
+              height: 100.0,
+              width: 100.0,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(30.0, 90.0, 0.0, 0.0),
+            child: updateTempWidget(
+                '${_cityEntered == null ? util.defaultCity : _cityEntered}'),
+          ),
+        ],
       ),
 
 
 
     );
   }
-   Future<Map> getWeather(String appId, String city) async {
+  Future<Map> getWeather(String appId, String city) async {
     String ? apiUrl='http://api.openweathermap.org/data/2.5/weather?q=$city&appid='
         '${util.apiId}&units=imperial';
     http.Response ?  response = await http.get(Uri.parse(apiUrl));
@@ -134,7 +158,7 @@ class _ChangeCityState extends State<ChangeCity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.purpleAccent,
         title: Text('Change City'),
         centerTitle: true,
       ),
@@ -173,7 +197,7 @@ class _ChangeCityState extends State<ChangeCity> {
                       Navigator.pop(
                           context,
                           {'enter': _cityFieldController.text});
-                     
+
 
                     },
 
@@ -192,9 +216,9 @@ class _ChangeCityState extends State<ChangeCity> {
 
 TextStyle citystyle(){
   return TextStyle(
-    color:  Colors.white,
-    fontSize: 22.0,
-    fontStyle: FontStyle.italic
+      color:  Colors.white,
+      fontSize: 22.0,
+      fontStyle: FontStyle.italic
   );
 
 }
