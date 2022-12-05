@@ -4,6 +4,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 void main(){
   runApp(splash());
 }
@@ -61,7 +62,8 @@ class _mmState extends State<mm> {
     );
   }
 }
-
+String? tasbheename;
+int ? countervalue;
 int num=0;
 int limitchecker=10000;
 int Counter=0;
@@ -87,6 +89,21 @@ class tasbhee extends StatefulWidget {
 class _tasbheeState extends State<tasbhee> {
   final Name = TextEditingController();
   final number = TextEditingController();
+  Future<SharedPreferences> JD = SharedPreferences.getInstance();
+  late SharedPreferences pref;
+  getData()async {
+    pref= await JD;
+    tasbheename=pref.containsKey("string") ? pref.getString("string"): "";
+    countervalue=(pref.containsKey("int") ? pref.getInt("int"): "0") as int?;
+    setState(() {
+      tnmae=tasbheename!;
+      Counter=countervalue!;
+    });
+  }
+  void initState(){
+    getData();
+    super.initState();
+  }
 
 @override
 
@@ -384,6 +401,8 @@ class _tasbheeState extends State<tasbhee> {
                         setState(() {
                           Counter++;
                         });
+                        pref.setString("string",tnmae);
+                        pref.setInt("int",Counter);
                       }
 
 
@@ -463,12 +482,29 @@ class _tasbheeState extends State<tasbhee> {
 class tasbhee2 extends StatefulWidget {
   const tasbhee2({Key? key}) : super(key: key);
 
+
   @override
   State<tasbhee2> createState() => _tasbhee2State();
+
 }
 
 class _tasbhee2State extends State<tasbhee2> {
   @override
+  Future<SharedPreferences> JD = SharedPreferences.getInstance();
+  late SharedPreferences pref;
+  getData()async {
+    pref = await JD;
+    tasbheename=pref.containsKey("string") ? pref.getString("string"): "";
+    countervalue=(pref.containsKey("int") ? pref.getInt("int"): "0") as int?;
+    setState(() {
+      tnmae=tasbheename!;
+      Counter=countervalue!;       
+    });
+  }
+  void initState(){
+    getData();
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -534,7 +570,9 @@ class _tasbhee2State extends State<tasbhee2> {
                            Counter=0;
                            Get.to(tasbhee());
                          });
-Get.to(tasbhee());
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
+                         Get.to(tasbhee());
                        },
 
 
@@ -567,6 +605,8 @@ Get.to(tasbhee());
                            Counter=0;
                            Get.to(tasbhee());
                          });
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
                          Get.to(tasbhee());
                        },
 
@@ -599,6 +639,8 @@ Get.to(tasbhee());
                            Counter=0;
                            Get.to(tasbhee());
                          });
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
                          Get.to(tasbhee());
                        },
 
@@ -656,6 +698,8 @@ Get.to(tasbhee());
                            Counter=0;
 
                          });
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
                          Get.to(tasbhee());
                        },
 
@@ -689,6 +733,8 @@ Get.to(tasbhee());
                            Counter=0;
 
                          });
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
                          Get.to(tasbhee());
                        },
 
@@ -722,6 +768,8 @@ Get.to(tasbhee());
 
 
                          });
+                         pref.setString("string",tnmae);
+                         pref.setInt("int",Counter);
 
                          Get.to(tasbhee());
                        },
