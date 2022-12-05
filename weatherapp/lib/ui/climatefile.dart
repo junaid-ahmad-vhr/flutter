@@ -118,7 +118,7 @@ class _ClimateState extends State<Climate> {
               ),
             ),
 
-      
+
           Container(
             margin: EdgeInsets.fromLTRB(30.0, 90.0, 0.0, 0.0),
             child: updateTempWidget(

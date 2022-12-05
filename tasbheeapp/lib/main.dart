@@ -3,6 +3,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 void main(){
   runApp(splash());
 }
@@ -65,6 +66,8 @@ int num=0;
 int limitchecker=10000;
 int Counter=0;
 String tnmae="Sallallahu Alaihi Wasallam";
+var namevalue="Sallallahu Alaihi Wasallam";
+var countvalue=0;
 
 
 
@@ -84,6 +87,11 @@ class tasbhee extends StatefulWidget {
 class _tasbheeState extends State<tasbhee> {
   final Name = TextEditingController();
   final number = TextEditingController();
+
+@override
+
+
+    // TODO: implement initState
 
   @override
 
@@ -326,6 +334,7 @@ class _tasbheeState extends State<tasbhee> {
                       ),
                     ),
                     onPressed: () {
+
                       // completed
                       AssetsAudioPlayer.newPlayer().open(
                         Audio("assets/cc.wav"),
@@ -447,6 +456,8 @@ class _tasbheeState extends State<tasbhee> {
     );
 
   }
+
+
 }
 
 class tasbhee2 extends StatefulWidget {
