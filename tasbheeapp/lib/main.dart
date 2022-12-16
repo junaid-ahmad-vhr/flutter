@@ -498,7 +498,7 @@ class _tasbhee2State extends State<tasbhee2> {
     countervalue=(pref.containsKey("int") ? pref.getInt("int"): "0") as int?;
     setState(() {
       tnmae=tasbheename!;
-      Counter=countervalue!;       
+      Counter=countervalue!;
     });
   }
   void initState(){
