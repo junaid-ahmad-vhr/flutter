@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:partywillingness/analysisclass.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'dart:async';
+import 'add_students.dart';
+import 'home.dart';
+import 'database.dart';
+import 'analysisclass.dart';
+final dbHelper = DatabaseHelper();
 void main() {
   runApp( splash());
 }
@@ -11,9 +17,7 @@ class splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Splash Screen',
-      theme: ThemeData(
-          primarySwatch: Colors.amber
-      ),
+
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -69,13 +73,142 @@ class _homescreenState extends State<homescreen> {
 
           //add mroe colors here.
         ],
-      ))),
-      body: Column(
-        children: [
-          Container(
+      )),
+        backgroundColor: Colors.black,
+        ),
+      body: Container(
+        color: Colors.black,
+        child: Column(
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Container(
+                    width: 500,
+                    height: 300,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/f.gif"),
+                          fit: BoxFit.cover),
+                    ),
 
-          )
-        ],
+                  ),
+                  Container(
+                    height: 100,
+                    width:200,
+                    child:
+                    ElevatedButton(
+                      child: GradientText(
+                        'ADD STUDENT',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        colors: [
+                          Colors.red,
+                          Colors.pinkAccent,
+                          Colors.teal,
+                          Colors.green,
+                          Colors.purple,
+
+                          //add mroe colors here.
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(15),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const AddStudents()),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: 100,
+                    width:200,
+                    child: ElevatedButton(
+                      child: GradientText(
+                        'VIEW RECORD',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        colors: [
+                          Colors.red,
+                          Colors.pinkAccent,
+                          Colors.teal,
+                          Colors.green,
+                          Colors.purple,
+
+                          //add mroe colors here.
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(15),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Home()),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 100,
+                    width:200,
+                    child: ElevatedButton(
+                      child: GradientText(
+                        'VIEW CHART',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                        ),
+                        colors: [
+                          Colors.red,
+                          Colors.pinkAccent,
+                          Colors.teal,
+                          Colors.green,
+                          Colors.purple,
+
+                          //add mroe colors here.
+                        ],
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(15),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          mm1();
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  HomePage2()),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
+          ],
+        ),
       ),
     );
   }
