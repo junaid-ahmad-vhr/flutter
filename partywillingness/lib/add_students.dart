@@ -151,7 +151,7 @@ class _AddStudentsState extends State<AddStudents> {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.black, width: 2.0),
                       ),
-                      hintText: "example@gmail.com",
+                      hintText: "100000",
                     ),
                   ),
                   SizedBox(
@@ -247,11 +247,49 @@ class _AddStudentsState extends State<AddStudents> {
                           };
                           final id = await dbHelper.insert(row);
                           debugPrint('inserted row id: $id');
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+
+                                    title: Text('Success '),
+                                    // To display the title it is optional
+                                    content: Container(
+                                      height: 70,
+                                      child: Column(children: [
+                                        Text('File Uploaded'),
+
+                                        TextButton(
+                                          style: ElevatedButton.styleFrom(
+                                            fixedSize: const Size(40, 40),
+                                            shape: const CircleBorder(),
+                                            backgroundColor: Colors.black,
+                                          ),
+                                          // FlatButton widget is used to make a text to work like a button
+
+                                          onPressed: () {
+
+                                            Navigator.pop(context);
+
+                                          },
+                                          // function used to perform after pressing the button
+                                          child: Text('Ok'),
+                                        ),
+                                      ] // Message which will be pop up on the screen
+                                        // Action widget which will provide the user to acknowledge the choice
+
+
+                                      ),
+                                    ),
+                                  );
+                                }
+                            );
+
                         },
                         child: GradientText(
                           'SUBMIT DETAIL',
                           style: TextStyle(
-                            fontSize: 25.0,
+                            fontSize: 16.0,
                           ),
                           colors: [
                             Colors.red,

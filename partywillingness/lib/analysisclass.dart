@@ -30,10 +30,11 @@ class HomePage2 extends StatelessWidget {
 
   final dataMap = <String, double>{
     "Total Student": p,
-    "Paid": p1,
-    "Unpaid": p2,
-    "Male Student": p3,
-    "Female Student": p4,
+    "Male Student": p1,
+    "Female Student": p2,
+    "Paid": p3,
+    "Unpaid": p4,
+
 
 
   };
