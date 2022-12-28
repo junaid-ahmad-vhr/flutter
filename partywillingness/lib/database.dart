@@ -63,6 +63,10 @@ class DatabaseHelper {
     final results = await _db.rawQuery('SELECT COUNT(*) FROM $table where status="Paid"');
     return Sqflite.firstIntValue(results) ?? 0;
   }
+  Future<int> clear() async {
+    final results = await _db.rawQuery('DELETE  FROM $table ');
+    return Sqflite.firstIntValue(results) ?? 0;
+  }
   Future<int> unpaid() async {
     final results = await _db.rawQuery('SELECT COUNT(*) FROM $table where status="Unpaid"');
     return Sqflite.firstIntValue(results) ?? 0;

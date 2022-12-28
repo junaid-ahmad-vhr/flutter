@@ -8,10 +8,18 @@ import 'database.dart';
 import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:io';
-
-
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'ad_helper.dart';
+import 'package:admob_flutter/admob_flutter.dart';
+import 'dart:io';
 final dbHelper = DatabaseHelper();
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize without device test ids.
+  Admob.initialize();
+  // Or add a list of test ids.
+  // Admob.initialize(testDeviceIds: ['YOUR DEVICE ID']);
+
   runApp( splash());
 }
 
@@ -60,9 +68,20 @@ class homescreen extends StatefulWidget {
 }
 
 class _homescreenState extends State<homescreen> {
+@override
+  void initState() {
+  // Run this before displaying any ad.
+
+    // TODO: implement initState
+    super.initState();
+    Admob.requestTrackingAuthorization();
+  }
+
   String? _filePath;
   String? _fileName;
   bool isLoad = false;
+
+
  void dial(){
    showDialog(
        context: context,
@@ -149,6 +168,8 @@ class _homescreenState extends State<homescreen> {
 
   }
   @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar (title: Center(child:GradientText(
@@ -168,176 +189,193 @@ class _homescreenState extends State<homescreen> {
       )),
         backgroundColor: Colors.black,
         ),
-      body: Container(
-        color: Colors.black,
-        child: Column(
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  Container(
-                    width: 500,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/f.gif"),
-                          fit: BoxFit.cover),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.black,
+          child: Column(
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 60,
+                      width: double.infinity,
+                      child: AdmobBanner(adUnitId: getBannerAdUnitId().toString(), adSize: AdmobBannerSize.BANNER),
                     ),
+                    Container(
+                      width: 500,
+                      height: 300,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/f.gif"),
+                            fit: BoxFit.cover),
+                      ),
 
-                  ),
+                    ),
+                     TextButton(onPressed: (){
+                       dbHelper.clear();
+                     }, child: Text('Clear Record')),
+                    Container(
+                      height: 70,
+                      width:200,
+                      child:
+                      ElevatedButton(
+                        child: GradientText(
+                          'UPLOAD FILE',
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                          colors: [
+                            Colors.red,
+                            Colors.pinkAccent,
+                            Colors.teal,
+                            Colors.green,
+                            Colors.purple,
 
-                  Container(
-                    height: 70,
-                    width:200,
-                    child:
-                    ElevatedButton(
-                      child: GradientText(
-                        'UPLOAD FILE',
-                        style: TextStyle(
-                          fontSize: 25.0,
+                            //add mroe colors here.
+                          ],
                         ),
-                        colors: [
-                          Colors.red,
-                          Colors.pinkAccent,
-                          Colors.teal,
-                          Colors.green,
-                          Colors.purple,
-
-                          //add mroe colors here.
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        padding: EdgeInsets.all(15),
-                      ),
-                      onPressed: () {
-                        _pickFile();
-
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 70,
-                    width:200,
-                    child:
-                    ElevatedButton(
-                      child: GradientText(
-                        'ADD STUDENT',
-                        style: TextStyle(
-                          fontSize: 25.0,
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.all(15),
                         ),
-                        colors: [
-                          Colors.red,
-                          Colors.pinkAccent,
-                          Colors.teal,
-                          Colors.green,
-                          Colors.purple,
+                        onPressed: () {
+                          _pickFile();
 
-                          //add mroe colors here.
-                        ],
+                        },
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        padding: EdgeInsets.all(15),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const AddStudents()),
-                        );
-                      },
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 70,
-                    width:200,
-                    child: ElevatedButton(
-                      child: GradientText(
-                        'VIEW RECORD',
-                        style: TextStyle(
-                          fontSize: 25.0,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 70,
+                      width:200,
+                      child:
+                      ElevatedButton(
+                        child: GradientText(
+                          'ADD STUDENT',
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                          colors: [
+                            Colors.red,
+                            Colors.pinkAccent,
+                            Colors.teal,
+                            Colors.green,
+                            Colors.purple,
+
+                            //add mroe colors here.
+                          ],
                         ),
-                        colors: [
-                          Colors.red,
-                          Colors.pinkAccent,
-                          Colors.teal,
-                          Colors.green,
-                          Colors.purple,
-
-                          //add mroe colors here.
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        padding: EdgeInsets.all(15),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Home()),
-                        );
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 70,
-                    width:200,
-                    child: ElevatedButton(
-                      child: GradientText(
-                        'VIEW CHART',
-                        style: TextStyle(
-                          fontSize: 25.0,
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.all(15),
                         ),
-                        colors: [
-                          Colors.red,
-                          Colors.pinkAccent,
-                          Colors.teal,
-                          Colors.green,
-                          Colors.purple,
-
-                          //add mroe colors here.
-                        ],
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const AddStudents()),
+                          );
+                        },
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        padding: EdgeInsets.all(15),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          mm1();
-                        });
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  HomePage2()),
-                        );
-                      },
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 70,
+                      width:200,
+                      child: ElevatedButton(
+                        child: GradientText(
+                          'VIEW RECORD',
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                          colors: [
+                            Colors.red,
+                            Colors.pinkAccent,
+                            Colors.teal,
+                            Colors.green,
+                            Colors.purple,
+
+                            //add mroe colors here.
+                          ],
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.all(15),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  Home()),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 70,
+                      width:200,
+                      child: ElevatedButton(
+                        child: GradientText(
+                          'VIEW CHART',
+                          style: TextStyle(
+                            fontSize: 25.0,
+                          ),
+                          colors: [
+                            Colors.red,
+                            Colors.pinkAccent,
+                            Colors.teal,
+                            Colors.green,
+                            Colors.purple,
+
+                            //add mroe colors here.
+                          ],
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.all(15),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            mm1();
+                          });
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  HomePage2()),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
+String? getBannerAdUnitId() {
+  if (Platform.isIOS) {
+    return 'ca-app-pub-4893816751129838/5742022165';
+  } else if (Platform.isAndroid) {
+    return 'ca-app-pub-4893816751129838/5742022165';
+  }
+  return null;
+}
 }
