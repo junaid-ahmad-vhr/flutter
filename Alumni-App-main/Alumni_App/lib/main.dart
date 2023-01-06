@@ -1,7 +1,7 @@
-import 'resources/firebaseRepos.dart';
-import 'screens/homeScreen.dart';
-import 'screens/loginRelatedScreens/loginScreen.dart';
-import 'screens/loginRelatedScreens/signUpScreen.dart';
+import 'package:alumni/resources/firebaseRepos.dart';
+import 'package:alumni/screens/homeScreen.dart';
+import 'package:alumni/screens/loginRelatedScreens/loginScreen.dart';
+import 'package:alumni/screens/loginRelatedScreens/signUpScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
