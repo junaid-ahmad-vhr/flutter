@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp( splash());
 }
 
@@ -27,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Timer(
         const Duration(seconds: 5),
             () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const homescreen ())));
+            context, MaterialPageRoute(builder: (context) => const login ())));
   }
   @override
   Widget build(BuildContext context) {
@@ -38,18 +45,5 @@ class _MyHomePageState extends State<MyHomePage> {
             fit: BoxFit.cover),
       ),
     );
-  }
-}
-class homescreen extends StatefulWidget {
-  const homescreen({Key? key}) : super(key: key);
-
-  @override
-  State<homescreen> createState() => _homescreenState();
-}
-
-class _homescreenState extends State<homescreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
