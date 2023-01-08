@@ -54,17 +54,17 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     _appbar() {
       return AppBar(
-        title: Text("Interact"),
+        title: Text("Stories",style: TextStyle(color:Colors.black),),
         elevation: 0,
         centerTitle: true,
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xff272c35),
+        backgroundColor: Colors.amber,
       );
     }
 
     return Scaffold(
       appBar: _appbar(),
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
       body: _list.length==0?Container(child: Center(child: CircularProgressIndicator())):SmartRefresher(
         header: WaterDropHeader(),
         controller: _refreshController,

@@ -51,10 +51,10 @@ class _EditInfoState extends State<EditInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: UniversalVariables.separatorColor,
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
           "Update info",
@@ -273,16 +273,20 @@ class _EditInfoState extends State<EditInfo> {
                       ),
                       SizedBox(height: 20),
                   Container(
-                    child:(currentUser.uid=='yCjrM2pXVNd7kpuY9SndSesPo532' )
+                    child:(currentUser.uid=='Syq7f63OyQYECTF0QO6buoyikgA3' )
                         ?
                     Container(
 
                         child: Column(
                           children: [
-                            RaisedButton(
-                              color: Colors.lightBlue,
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.amber, // Background color
+                                onPrimary: Colors.black, // Text Color (Foreground color)
+                              ),
+
                               child: Text(
-                                "Save",
+                                "        Save        ",
                                 style: TextStyle(fontSize: 18),
                               ),
                               onPressed: () {
@@ -309,8 +313,12 @@ class _EditInfoState extends State<EditInfo> {
                                 }
                               },
                             ),
-                            RaisedButton(
-                              color: Colors.lightBlue,
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.amber, // Background color
+                                onPrimary: Colors.black, // Text Color (Foreground color)
+                              ),
+
                               child: Text(
                                 "Update Users",
                                 style: TextStyle(fontSize: 18),
@@ -330,8 +338,8 @@ class _EditInfoState extends State<EditInfo> {
                         Container(
                           child: Column(
                             children: [
-                              RaisedButton(
-                                color: Colors.lightBlue,
+                              ElevatedButton(
+
                                 child: Text(
                                   "Save",
                                   style: TextStyle(fontSize: 18),

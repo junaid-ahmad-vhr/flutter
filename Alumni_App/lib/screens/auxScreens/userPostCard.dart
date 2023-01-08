@@ -27,7 +27,7 @@ class _UserPostCardState extends State<UserPostCard> {
           title: Text("Delete Post"),
           content: Text("Are you sure to delete the post?"),
           actions: [
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   _repository.deletePost(qds.data()['id']).then((value) {
                     setState(() {
@@ -38,7 +38,7 @@ class _UserPostCardState extends State<UserPostCard> {
                   });
                 },
                 child: Text("Yes")),
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -69,7 +69,7 @@ class _UserPostCardState extends State<UserPostCard> {
                       widget.qds.data()['tag'].toString().toUpperCase() ==
                               "STUDENT"
                           ? Colors.lightBlue
-                          : Colors.red,
+                          : Colors.amber,
                   highlightColor: Colors.white,
                   child: Text(
                     widget.qds.data()['name'],
@@ -94,7 +94,7 @@ class _UserPostCardState extends State<UserPostCard> {
           IconButton(
             icon: Icon(
               Icons.delete,
-              color: Colors.grey,
+              color: Colors.redAccent,
             ),
             onPressed: () {
               _showDialog();
@@ -133,7 +133,7 @@ class _UserPostCardState extends State<UserPostCard> {
                   color: widget.qds.data()['tag'].toString().toUpperCase() ==
                           "STUDENT"
                       ? Colors.lightBlue
-                      : Colors.red,
+                      : Colors.amber,
                 )),
             TextSpan(text: " "),
             TextSpan(text: widget.qds.data()['text']),

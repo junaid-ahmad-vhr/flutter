@@ -18,20 +18,21 @@ class _PostCardState extends State<PostCard> {
   //
   introTab() {
     return Container(
-      height: 65,
+      height: 80,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           Container(
             padding: EdgeInsets.fromLTRB(5, 5, 0, 2),
             child: Shimmer.fromColors(
               baseColor:
                   widget.qds.data()['tag'].toString().toUpperCase() == "STUDENT"
                       ? Colors.lightBlue
-                      : Colors.red,
+                      : Colors.yellowAccent,
               highlightColor: Colors.white,
               child: Text(
                 widget.qds.data()['name'],
@@ -43,17 +44,49 @@ class _PostCardState extends State<PostCard> {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.fromLTRB(5, 0, 0, 3),
-            child: Text(
-              widget.qds.data()['tag'].toString().toUpperCase(),
-              style: TextStyle(fontSize: 14, color: Colors.grey),
-              overflow: TextOverflow.ellipsis,
-            ),
+
+
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.fromLTRB(5, 0, 0, 3),
+                child: Text(" Member  "+
+                  widget.qds.data()['tag'].toString().toUpperCase(),
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+    SizedBox(
+      width: 20,
+    ),
+    Text(
+    timeago.format(DateTime.now().subtract(
+    DateTime.now().difference(widget.qds.data()['date'].toDate()))),
+    style: TextStyle(fontSize: 12, color: Colors.grey),
+    overflow: TextOverflow.ellipsis,
+    )
+            ],
+          ),
+          RichText(
+            text: TextSpan(children: [
+              TextSpan(
+                  text: widget.qds.data()['name'],
+                  style: new TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: widget.qds.data()['tag'].toString().toUpperCase() ==
+                        "STUDENT"
+                        ? Colors.lightBlue
+                        : Colors.red,
+                  )),
+              TextSpan(text: " "),
+              TextSpan(text: widget.qds.data()['text']),
+            ]),
           ),
         ],
       ),
     );
+
   }
 
   imageContainer() {
@@ -76,18 +109,7 @@ class _PostCardState extends State<PostCard> {
       child: SingleChildScrollView(
         child: RichText(
           text: TextSpan(children: [
-            TextSpan(
-                text: widget.qds.data()['name'],
-                style: new TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: widget.qds.data()['tag'].toString().toUpperCase() ==
-                          "STUDENT"
-                      ? Colors.lightBlue
-                      : Colors.red,
-                )),
-            TextSpan(text: " "),
-            TextSpan(text: widget.qds.data()['text']),
+
           ]),
         ),
         // child: Text(widget.qds.data()['text'],
@@ -96,22 +118,13 @@ class _PostCardState extends State<PostCard> {
     );
   }
 
-  timeAgoContainer() {
-    return Container(
-      padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
-      child: Text(
-        timeago.format(DateTime.now().subtract(
-            DateTime.now().difference(widget.qds.data()['date'].toDate()))),
-        style: TextStyle(fontSize: 12, color: Colors.grey),
-        overflow: TextOverflow.ellipsis,
-      ),
-    );
-  }
+
 
   likeContainer() {
     return Container(
       padding: EdgeInsets.all(10),
-      child: Row(
+      child:
+      Row(
         children: [
           LikeButton(
             isLiked: (widget.qds.data()['likes'])
@@ -164,7 +177,7 @@ class _PostCardState extends State<PostCard> {
           if (widget.qds.data()['imageUrl'] != null) imageContainer(),
           if (widget.qds.data()['imageUrl'] != null) likeContainer(),
           if (widget.qds.data()['imageUrl'] != null) textContainer(),
-          timeAgoContainer(),
+
         ],
       ),
     );

@@ -32,22 +32,17 @@ class _SignUpState extends State<SignUp> {
             color: Colors.black,
             child: Column(
               children: [
-                Container(
-                  height: height * .3,
-                  alignment: Alignment.bottomCenter,
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.white,
-                    highlightColor: Colors.lightBlue,
-                    child: Text(
-                      'Register Now',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 50.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                SizedBox(
+                  height: 100,
                 ),
+                Container(
+                  width: 500,
+                  height: 300,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/sign.png"),
+                        fit: BoxFit.cover),
+                  ),),
                 // SizedBox(
                 //   height: MediaQuery.of(context).size.height * .1,
                 // ),
@@ -60,8 +55,12 @@ class _SignUpState extends State<SignUp> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+
+
+
                           TextFormField(
                             decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.email ,color: Colors.amber,),
                               hintText: "Email",
                               hintStyle:
                                   TextStyle(color: Colors.black, fontSize: 16),
@@ -69,7 +68,7 @@ class _SignUpState extends State<SignUp> {
                               fillColor: Colors.white,
                               contentPadding: EdgeInsets.all(10),
                               border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(10.0),
+                                borderRadius: new BorderRadius.circular(30.0),
                                 borderSide: new BorderSide(),
                               ),
                               focusedBorder: OutlineInputBorder(
@@ -95,6 +94,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                           TextFormField(
                             decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.password ,color: Colors.amber,),
                               hintText: "Password",
                               hintStyle:
                                   TextStyle(color: Colors.black, fontSize: 16),
@@ -102,7 +102,7 @@ class _SignUpState extends State<SignUp> {
                               fillColor: Colors.white,
                               contentPadding: EdgeInsets.all(10),
                               border: new OutlineInputBorder(
-                                borderRadius: new BorderRadius.circular(10.0),
+                                borderRadius: new BorderRadius.circular(30.0),
                                 borderSide: new BorderSide(),
                               ),
                               focusedBorder: OutlineInputBorder(
@@ -158,8 +158,11 @@ class _SignUpState extends State<SignUp> {
                           SizedBox(
                             height: 15,
                           ),
-                          RaisedButton(
-                            color: Colors.lightBlue,
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.amber, // Background color
+                              onPrimary: Colors.black, // Text Color (Foreground color)
+                            ),
                             child: Text(
                               "Sign Up",
                               style: TextStyle(fontSize: 18),
@@ -178,7 +181,7 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                     );
                                   } else {
-                                    Scaffold.of(context).showSnackBar(
+                                    ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                           content: Text(
                                             "This account already exists..please signIn",
@@ -188,15 +191,12 @@ class _SignUpState extends State<SignUp> {
                                           ),
                                           backgroundColor: Colors.white),
                                     );
+
                                   }
                                 });
                               }
                             },
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.white)),
+
                           ),
                           SizedBox(
                             height: 15,

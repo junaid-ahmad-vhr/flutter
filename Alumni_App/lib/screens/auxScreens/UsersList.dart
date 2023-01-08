@@ -61,7 +61,7 @@ class _UserListState extends State<UserList> {
                     children: [
                       TableCell(
                         child: Container(
-                          color: Colors.blueAccent,
+                          color: Colors.amber,
                           child: Center(
                             child: Text(
                               'Name',
@@ -75,7 +75,7 @@ class _UserListState extends State<UserList> {
                       ),
                       TableCell(
                         child: Container(
-                          color: Colors.blueAccent,
+                          color: Colors.amber,
                           child: Center(
                             child: Text(
                               'Status',
@@ -89,7 +89,7 @@ class _UserListState extends State<UserList> {
                       ),
                       TableCell(
                         child: Container(
-                          color: Colors.blueAccent,
+                          color: Colors.amber,
                           child: Center(
                             child: Text(
                               'Number',
@@ -103,7 +103,7 @@ class _UserListState extends State<UserList> {
                       ),
                       TableCell(
                         child: Container(
-                          color: Colors.blueAccent,
+                          color: Colors.amber,
                           child: Center(
                             child: Text(
                               'Actions',

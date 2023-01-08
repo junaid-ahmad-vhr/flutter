@@ -63,13 +63,13 @@ class _AddPostState extends State<AddPost> {
             title: Text("Select image"),
             content: Text("Choose image from"),
             actions: [
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     getImageFromCamera()
                         .then((value) => Navigator.pop(context));
                   },
                   child: Text("Camera")),
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     getImageFromGallery()
                         .then((value) => Navigator.pop(context));
@@ -90,7 +90,6 @@ class _AddPostState extends State<AddPost> {
           content: Container(
             height: 200,
             child: Center(
-              child: CircularProgressIndicator(),
             ),
           ),
         );
@@ -114,9 +113,9 @@ class _AddPostState extends State<AddPost> {
                   (_textController.text.trim().length == 0 ||
                       _textController.text.length == 0)) {
               } else {
-                setState(() {
+
                   _showUploadingDialog();
-                });
+
                 _repository.addImageToDB(_image).then(
                   (String _imageUrl) {
                     setState(() {
@@ -144,7 +143,7 @@ class _AddPostState extends State<AddPost> {
 
                       _repository.addPostDataToDB(_myPost, uidd).then((value) {
                         setState(() {
-                          Navigator.of(context).pop();
+
                           _image = null;
                           _textController.clear();
                         });
@@ -160,7 +159,7 @@ class _AddPostState extends State<AddPost> {
       elevation: 0,
       centerTitle: true,
       automaticallyImplyLeading: false,
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
     );
   }
 
@@ -187,12 +186,12 @@ class _AddPostState extends State<AddPost> {
         controller: _textController,
         maxLines: 10,
         maxLength: 100,
-        maxLengthEnforced: true,
+
         decoration: InputDecoration(
           hintText: "Write something about your post..",
           helperStyle: TextStyle(color: Colors.white),
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Colors.amber,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(color: Color(0xff2b9ed4))),
@@ -206,13 +205,19 @@ class _AddPostState extends State<AddPost> {
     return Container(
       alignment: Alignment.centerRight,
       padding: EdgeInsets.only(right: 10),
-      child: RaisedButton(
-        onPressed: () {
-          _showDialog();
-        },
-        child: Text("Add image",
-            style: TextStyle(color: Colors.white, fontSize: 16)),
-        color: Color(0xff2b9ed4),
+      child: Center(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.amber, // Background color
+            onPrimary: Colors.black, // Text Color (Foreground color)
+          ),
+          onPressed: () {
+            _showDialog();
+          },
+          child: Text("Add image",
+              style: TextStyle(color: Colors.black, fontSize: 16)),
+
+        ),
       ),
     );
   }
@@ -239,7 +244,7 @@ adminpost()
       ),
       height: 60,
       width: MediaQuery.of(context).size.width,
-      color: UniversalVariables.separatorColor,
+      color: Colors.black,
       child: Row(
         children: [
           Expanded(
@@ -260,12 +265,12 @@ adminpost()
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appbar(),
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
       body: Column(
         children: [
          Column(
              children: [
-               (currentUser.uid=='yCjrM2pXVNd7kpuY9SndSesPo532'||  SubAdmin=='SUB')
+               (currentUser.uid=='Syq7f63OyQYECTF0QO6buoyikgA3'||  SubAdmin=='SUB')
                    ? adminpost()
                    : notpost(),
              ],

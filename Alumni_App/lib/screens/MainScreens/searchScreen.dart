@@ -18,7 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return AppBar(
       elevation: 0,
       automaticallyImplyLeading: false,
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
       title: Container(
         height: 46,
         margin: EdgeInsets.symmetric(vertical: 10),
@@ -45,7 +45,7 @@ class _SearchScreenState extends State<SearchScreen> {
             );
           },
           decoration: InputDecoration(
-            fillColor: Colors.white,
+            fillColor: Colors.amber,
             filled: true,
             hintText: "Search Users",
             hintStyle: TextStyle(color: Colors.grey[850], fontSize: 16),
@@ -82,7 +82,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(),
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black,
       body: Container(
         child: ListView.builder(
           itemCount: _smallList.length,
@@ -97,7 +97,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 );
               },
               child: ListTile(
-                trailing: Icon(Icons.chat,color: Colors.white),
+                trailing: Icon(Icons.chat,color: Colors.amber),
                 title: Text(
                   _smallList[index].data()['name'].toString().toUpperCase(),
                   overflow: TextOverflow.ellipsis,

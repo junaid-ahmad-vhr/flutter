@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text("LogOut"),
             content: Text("Are you sure to log out?"),
             actions: [
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     _repositories.signOut().then((value) {
                       Navigator.of(context).pop();
@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     });
                   },
                   child: Text("Yes")),
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -92,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 baseColor:
                     userData.data()['tag'].toString().toUpperCase() == "STUDENT"
                         ? Colors.lightBlue
-                        : Colors.red,
+                        : Colors.amber,
                 highlightColor: Colors.white,
                 child: Text(
                   "${userData.data()['tag'].toString().toUpperCase()} ${userData.data()['course'].toString().toUpperCase()}",

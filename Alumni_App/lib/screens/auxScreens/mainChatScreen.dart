@@ -35,7 +35,7 @@ class _ChatScreenState extends State<ChatScreen> {
   _customAppbar() {
     return AppBar(
       elevation: 0,
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.amber,
       centerTitle: true,
       title: Text(
         widget.qds.data()['name'],
@@ -122,7 +122,7 @@ class _ChatScreenState extends State<ChatScreen> {
       height: 60,
       width: MediaQuery.of(context).size.width,
       color: UniversalVariables.separatorColor,
-      child:(widget.qds.data()['uid']=='yCjrM2pXVNd7kpuY9SndSesPo532' || widget.qds.data()['SubAdmin']=='SUB')? Row(
+      child:(widget.qds.data()['uid']=='Syq7f63OyQYECTF0QO6buoyikgA3' || widget.qds.data()['SubAdmin']=='SUB')? Row(
         children: [
           Expanded(
             child: Container(
@@ -243,7 +243,7 @@ class _ChatScreenState extends State<ChatScreen> {
       constraints:
           BoxConstraints(maxWidth: MediaQuery.of(context).size.width * .60),
       decoration: BoxDecoration(
-        color: UniversalVariables.senderColor,
+        color: Colors.amber,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
@@ -252,9 +252,15 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Text(
-          data['text'],
-          style: TextStyle(fontSize: 18, color: Colors.white),
+        child: Row(
+          children: [
+            Icon(Icons.check, color: Colors.blue ),
+            SizedBox(width: 20,),
+            Text(
+              data['text'],
+              style: TextStyle(fontSize: 18, color: Colors.black),
+            ),
+          ],
         ),
       ),
     );
@@ -266,7 +272,7 @@ class _ChatScreenState extends State<ChatScreen> {
       constraints:
           BoxConstraints(maxWidth: MediaQuery.of(context).size.width * .60),
       decoration: BoxDecoration(
-        color: UniversalVariables.receiverColor,
+        color: Colors.redAccent,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10),
           bottomRight: Radius.circular(10),
@@ -275,9 +281,15 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Text(
-          data['text'],
-          style: TextStyle(fontSize: 18, color: Colors.white),
+        child: Row(
+          children: [
+            Icon(Icons.check, color: Colors.blue ),
+            SizedBox(width: 20,),
+            Text(
+              data['text'],
+              style: TextStyle(fontSize: 18, color: Colors.black87),
+            ),
+          ],
         ),
       ),
     );
@@ -285,7 +297,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UniversalVariables.separatorColor,
+      backgroundColor: Colors.black87,
       appBar: _customAppbar(),
       body: Column(
         children: [
@@ -296,7 +308,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           Container(
-            child:(currentUser.uid=='yCjrM2pXVNd7kpuY9SndSesPo532'|| SubAdmin=='SUB')
+            child:(currentUser.uid=='Syq7f63OyQYECTF0QO6buoyikgA3'|| SubAdmin=='SUB')
                 ? _bottomContainer()
                 : _bottomContainer2()
           ),

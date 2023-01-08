@@ -58,39 +58,39 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(vertical: 10),
-        color:  UniversalVariables.separatorColor,
+        color:  Colors.black,
           child: CupertinoTabBar(
-            backgroundColor:  UniversalVariables.separatorColor,
+            backgroundColor: Colors.amber,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home,
                     color: (_selectedIndex == 0)
                         ? Color(0xff0077d7)
-                        : Color(0xff8f8f8f)),
+                        : Colors.black),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.search,
                     color: (_selectedIndex == 1)
                         ? Color(0xff0077d7)
-                        : Color(0xff8f8f8f)),
+                        : Colors.black),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.add,
                     color: (_selectedIndex == 2)
                         ? Color(0xff0077d7)
-                        : Color(0xff8f8f8f)),
+                        : Colors.black),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.edit,
                     color: (_selectedIndex == 3)
                         ? Color(0xff0077d7)
-                        : Color(0xff8f8f8f)),
+                        : Colors.black),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.account_circle,
                     color: (_selectedIndex == 4)
                         ? Color(0xff0077d7)
-                        : Color(0xff8f8f8f)),
+                        : Colors.black),
               ),
             ],
             onTap: _onItemTapped,

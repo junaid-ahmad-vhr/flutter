@@ -128,8 +128,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                           SizedBox(
                             height: 15,
                           ),
-                          RaisedButton(
-                            color: Colors.lightBlue,
+                          ElevatedButton(
+
                             child: Text(
                               "Reset",
                               style: TextStyle(fontSize: 18),
@@ -137,11 +137,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             onPressed: () {
                                   FirebaseAuth.instance.sendPasswordResetEmail(email: _email.text).then((value) => Navigator.of(context).pop());
                             },
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(color: Colors.white)),
+
                           ),
 
                         ],

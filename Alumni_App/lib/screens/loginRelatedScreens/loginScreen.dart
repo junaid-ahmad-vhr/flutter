@@ -37,22 +37,18 @@ class _LogInState extends State<LogIn> {
                 color: Colors.black,
                 child: Column(
                   children: [
-                    Container(
-                      height: height * .3,
-                      alignment: Alignment.bottomCenter,
-                      child: Shimmer.fromColors(
-                        baseColor: Colors.white,
-                        highlightColor: Colors.lightBlue,
-                        child: Text(
-                          'Sign In',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 60.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
+                    SizedBox(
+                      height: 90,
                     ),
+
+                  Container(
+                  width: 500,
+                  height: 300,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/lo.png"),
+                        fit: BoxFit.cover),
+                  ),),
                     Expanded(
                       child: Container(
                         alignment: Alignment.bottomCenter,
@@ -64,6 +60,7 @@ class _LogInState extends State<LogIn> {
                             children: [
                               TextFormField(
                                 decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.email ,color: Colors.amber,),
                                   hintText: "Email",
                                   hintStyle: TextStyle(
                                       color: Colors.black, fontSize: 16),
@@ -72,7 +69,7 @@ class _LogInState extends State<LogIn> {
                                   contentPadding: EdgeInsets.all(10),
                                   border: new OutlineInputBorder(
                                     borderRadius:
-                                        new BorderRadius.circular(10.0),
+                                        new BorderRadius.circular(30.0),
                                     borderSide:
                                         new BorderSide(color: Colors.blue),
                                   ),
@@ -95,6 +92,7 @@ class _LogInState extends State<LogIn> {
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.password,color: Colors.amber,),
                                   hintText: "Password",
                                   hintStyle: TextStyle(
                                       color: Colors.black, fontSize: 16),
@@ -103,7 +101,7 @@ class _LogInState extends State<LogIn> {
                                   contentPadding: EdgeInsets.all(10),
                                   border: new OutlineInputBorder(
                                     borderRadius:
-                                        new BorderRadius.circular(10.0),
+                                        new BorderRadius.circular(30.0),
                                     borderSide: new BorderSide(),
                                   ),
                                   focusedBorder: OutlineInputBorder(
@@ -129,8 +127,11 @@ class _LogInState extends State<LogIn> {
                                 height: 10,
                               ),
                               forgetPassword(context),
-                              RaisedButton(
-                                color: Colors.lightBlue,
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.amber, // Background color
+                                  onPrimary: Colors.black, // Text Color (Foreground color)
+                                ),
                                 child: Text(
                                   "Sign In",
                                   style: TextStyle(fontSize: 18),
@@ -180,8 +181,7 @@ class _LogInState extends State<LogIn> {
                                                     } else {
                                                       print(
                                                           "There was some error");
-                                                      Scaffold.of(context)
-                                                          .showSnackBar(
+                                                      ScaffoldMessenger.of(context).showSnackBar(
                                                         SnackBar(
                                                             content: Text(
                                                               "Invalid Email or check your internet connection",
@@ -190,9 +190,11 @@ class _LogInState extends State<LogIn> {
                                                                       .black,
                                                                   fontSize: 16),
                                                             ),
+
                                                             backgroundColor:
                                                                 Colors.white),
                                                       );
+
                                                     }
                                                   });
                                                 }
@@ -203,7 +205,7 @@ class _LogInState extends State<LogIn> {
                                                 });
                                               });
                                             } else {
-                                              Scaffold.of(context).showSnackBar(
+                                              ScaffoldMessenger.of(context).showSnackBar(
                                                 SnackBar(
                                                     content: Text(
                                                       "Wrong password",
@@ -214,11 +216,12 @@ class _LogInState extends State<LogIn> {
                                                     backgroundColor:
                                                         Colors.white),
                                               );
+
                                             }
                                           },
                                         );
                                       } else {
-                                        Scaffold.of(context).showSnackBar(
+                                        ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(
                                               content: Text(
                                                 "Account doesn't exists..please signUp",
@@ -232,11 +235,7 @@ class _LogInState extends State<LogIn> {
                                     });
                                   }
                                 },
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 10),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    side: BorderSide(color: Colors.white)),
+
                               ),
                               SizedBox(
                                 height: 15,

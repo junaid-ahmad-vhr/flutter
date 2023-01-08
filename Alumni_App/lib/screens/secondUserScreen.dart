@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:url_launcher/url_launcher.dart';
 class SecondUserProfilePage extends StatefulWidget {
   final DocumentSnapshot qds;
   SecondUserProfilePage(this.qds);
@@ -55,7 +56,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
           title: Text("Delete User"),
           content: Text("Are you sure to delete the User?"),
           actions: [
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   _repository.deleteUser(qds.data()['uid']).then((value) {
                     setState(() {
@@ -66,7 +67,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                   });
                 },
                 child: Text("Yes")),
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -85,7 +86,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
           title: Text("Sub Admin"),
           content: Text("Are you sure to add or Remove Sub Admin?"),
           actions: [
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   _repositorySubAdmin.updateUserInfo2(qds.data()['uid'], 'SUB').then((value) {
                     setState(() {
@@ -96,7 +97,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                   });
                 },
                 child: Text("Yes")),
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   _repositorySubAdmin.updateUserInfo2(qds.data()['uid'], 'UNSUB').then((value) {
                     setState(() {
@@ -107,7 +108,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                   });
                 },
                 child: Text("REMOVE")),
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -121,33 +122,41 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
   Widget build(BuildContext context) {
     _appbar() {
       return AppBar(
-        title: Text(widget.qds.data()['rollNumber']),
+        title: Text(widget.qds.data()['name']),
         elevation: 0,
         centerTitle: true,
-        backgroundColor: Color(0xff272c35),
+        backgroundColor: Colors.black,
         actions: [
           Container(
-              child:(currentUser.uid=='yCjrM2pXVNd7kpuY9SndSesPo532' ||  SubAdmin=='SUB')
+              child:(currentUser.uid=='Syq7f63OyQYECTF0QO6buoyikgA3' ||  SubAdmin=='SUB')
                   ?
               Container(
-                  child:(currentUser.uid=='yCjrM2pXVNd7kpuY9SndSesPo532' )?
+                  child:(currentUser.uid=='Syq7f63OyQYECTF0QO6buoyikgA3' )?
                   Container(
                     child: Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.person_add_alt_1_sharp, color: Colors.white),
+                          icon: Icon(Icons.phone, color: Colors.amber),
+                          onPressed: () {
+                            String a=widget.qds.data()['Number'].toString().toUpperCase();
+                            launch("tel://$a");
+                          },
+                        ),
+
+                        IconButton(
+                          icon: Icon(Icons.person_add_alt_1_sharp, color: Colors.amber),
                           onPressed: () {
                             _showDialogSubAdmin();
                           },
                         ),
                         IconButton(
-                          icon: Icon(Icons.delete, color: Colors.white),
+                          icon: Icon(Icons.delete, color: Colors.amber),
                           onPressed: () {
                             _showDialog();
                           },
                         ),
                         IconButton(
-                          icon: Icon(Icons.chat, color: Colors.white),
+                          icon: Icon(Icons.chat, color: Colors.amber),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -168,7 +177,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                       children: [
 
                         IconButton(
-                          icon: Icon(Icons.chat, color: Colors.white),
+                          icon: Icon(Icons.chat, color: Colors.amber),
                           onPressed: () {
                             Navigator.push(
                               context,
@@ -205,6 +214,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
 
     _firstContainer() {
       return Container(
+        color: Colors.black,
         padding: EdgeInsets.fromLTRB(10, 10, 10, 50),
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -216,7 +226,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
                 baseColor: widget.qds.data()['tag'].toString().toUpperCase() ==
                         "STUDENT"
                     ? Colors.lightBlue
-                    : Colors.red,
+                    : Colors.amber,
                 highlightColor: Colors.white,
                 child: Text(
                   "${widget.qds.data()['tag'].toString().toUpperCase()} ${widget.qds.data()['course'].toString().toUpperCase()}",
@@ -229,6 +239,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
               ),
             ),
             Container(
+              color:Colors.black,
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "${widget.qds.data()['startingYear'].toString().toUpperCase()} - ${widget.qds.data()['endingYear'].toString().toUpperCase()}",
@@ -305,6 +316,7 @@ class _SecondUserProfilePageState extends State<SecondUserProfilePage> {
     _secondContainer() {
       return Expanded(
         child: Container(
+          color: Colors.black,
           child: _list.length == 0
               ? Container(
                   child: Center(

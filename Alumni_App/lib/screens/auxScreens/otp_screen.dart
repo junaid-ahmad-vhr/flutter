@@ -44,7 +44,7 @@ class OtpScreenState extends State<OtpScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * .1,
               ),
-              RaisedButton(
+              ElevatedButton(
                
                 onPressed: () {
                    setState((){
@@ -58,7 +58,7 @@ class OtpScreenState extends State<OtpScreen> {
                       ),
                     );
                   } else {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                           content: Text(
                             "There is some error, try chekcing your internet connection",

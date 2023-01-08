@@ -52,7 +52,7 @@ class _SecondScreenState extends State<SecondScreen> {
         backgroundColor: UniversalVariables.blackColor,
         centerTitle: true,
         title: Text(
-          "Enter info",
+          "Registration Form",
           style: TextStyle(color: Colors.white, fontSize: 23),
         ),
         elevation: 0,
@@ -76,7 +76,8 @@ class _SecondScreenState extends State<SecondScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: "Name",
+                        prefixIcon: Icon(Icons.nest_cam_wired_stand ,color: Colors.amber,),
+                        hintText: " Enter Name",
                         hintStyle:
                             TextStyle(fontSize: 16, color: Colors.grey[900]),
                         filled: true,
@@ -98,6 +99,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.book ,color: Colors.amber,),
                         hintText: "Course",
                         hintStyle:
                             TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -150,7 +152,7 @@ class _SecondScreenState extends State<SecondScreen> {
                           dropdownColor: Colors.white,
 
                           hint: Text("Select Blood Group"),
-                          icon: Icon(Icons.arrow_drop_down),
+                          icon: Icon(Icons.bloodtype,color: Colors.amber),
                           iconSize: 36,
                           isExpanded: true,
                           underline: SizedBox(),
@@ -190,6 +192,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.text_format_outlined ,color: Colors.amber,),
                         hintText: "Roll number(e.g:FA19-BCS-000)",
                         hintStyle:
                             TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -212,6 +215,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.contact_page ,color: Colors.amber,),
                         hintText: "Contact #",
                         hintStyle:
                         TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -256,7 +260,7 @@ setState(() {
   _tag = "Alumni";
 });
                             },
-                            activeColor: Colors.red,),
+                            activeColor: Colors.amber,),
                           SizedBox( width: 5.0,),
                             Text("Alumni",style: TextStyle(color: Colors.white, fontSize: 16),),
                           ],
@@ -268,7 +272,7 @@ setState(() {
                                 _value=value;
                                 _tag = "Student";
                               });
-                            }),
+                            },activeColor: Colors.amber,),
                             SizedBox( width: 5.0,),
                             Text("Student",style: TextStyle(color: Colors.white, fontSize: 16),),
                           ],
@@ -286,6 +290,7 @@ setState(() {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.computer ,color: Colors.amber,),
                         hintText: "Major Skills",
                         hintStyle:
                         TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -309,6 +314,7 @@ setState(() {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.date_range ,color: Colors.amber,),
                         hintText: "Starting year",
                         hintStyle:
                             TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -331,6 +337,7 @@ setState(() {
                         return null;
                       },
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.date_range ,color: Colors.amber,),
                         hintText: "End year",
                         hintStyle:
                             TextStyle(fontSize: 16, color: Colors.grey[900]),
@@ -343,8 +350,12 @@ setState(() {
                       ),
                     ),
                     SizedBox(height: 20),
-                    RaisedButton(
-                      color: Colors.lightBlue,
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.amber, // Background color
+                        onPrimary: Colors.black, // Text Color (Foreground color)
+                      ),
+
                       child: Text(
                         "Continue",
                         style: TextStyle(fontSize: 18),
@@ -412,7 +423,7 @@ setState(() {
                                         );
                                       } else {
                                         print("There was some error");
-                                        Scaffold.of(context).showSnackBar(
+                                        ScaffoldMessenger.of(context).showSnackBar(
                                           SnackBar(
                                               content: Text(
                                                 "Invalid Email or check your internet connection",
