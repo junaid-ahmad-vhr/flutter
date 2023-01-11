@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'login.dart';
 void main() async {
 
   runApp(splash());
@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/aa.gif"),
+            image: AssetImage("assets/s.gif"),
             fit: BoxFit.cover),
       ),
     );
