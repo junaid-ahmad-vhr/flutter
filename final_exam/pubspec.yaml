@@ -1,4 +1,4 @@
-name: final_exam
+name: untitled
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -37,6 +37,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   email_validator: ^2.1.17
+  firebase_auth: ^4.2.5
+  firebase_core: ^2.4.1
+  cloud_firestore: ^4.3.1
+  path_provider: ^2.0.11
+  sqflite: ^2.2.2
+  get: ^4.6.5
 
 
 dev_dependencies:
